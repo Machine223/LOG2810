@@ -29,7 +29,7 @@ class Graph
 	void afficherGraphe(vector<Sommet> graphe);
 	void prendreCommande();
 	void afficherCommande();
-	void plusCourtChemin(const string& origine, const string& destination, Robot* vehicule); // Dijkstra
+	void plusCourtChemin(const string& origine, const string& destination, Robot* robot); // Dijkstra
 
 
 	private:
