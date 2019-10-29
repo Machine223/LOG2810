@@ -1,19 +1,37 @@
-﻿  Graph.cpp
-c:\users\machine\documents\log2810 structures discretes\tp\tp1 graph\tp1\sommet.h(42): error C2065: 'Objet' : identificateur non déclaré
-c:\users\machine\documents\log2810 structures discretes\tp\tp1 graph\tp1\sommet.h(42): error C2059: erreur de syntaxe : '>'
-  Objet.cpp
-c:\users\machine\documents\log2810 structures discretes\tp\tp1 graph\tp1\objet.h(8): error C2061: erreur de syntaxe : identificateur 'string'
-c:\users\machine\documents\log2810 structures discretes\tp\tp1 graph\tp1\objet.h(8): error C2535: 'Objet::Objet(void)' : fonction membre déjà définie ou déclarée
-  c:\users\machine\documents\log2810 structures discretes\tp\tp1 graph\tp1\objet.h(6): note: voir la déclaration de 'Objet::Objet'
-c:\users\machine\documents\log2810 structures discretes\tp\tp1 graph\tp1\objet.h(21): error C3646: 'type_' : spécificateur de substitution inconnu
-c:\users\machine\documents\log2810 structures discretes\tp\tp1 graph\tp1\objet.h(21): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
-  Robot.cpp
-  Sommet.cpp
-c:\users\machine\documents\log2810 structures discretes\tp\tp1 graph\tp1\sommet.h(42): error C2065: 'Objet' : identificateur non déclaré
-c:\users\machine\documents\log2810 structures discretes\tp\tp1 graph\tp1\sommet.h(42): error C2059: erreur de syntaxe : '>'
-c:\users\machine\documents\log2810 structures discretes\tp\tp1 graph\tp1\sommet.cpp(6): error C2511: 'Sommet::Sommet(void)' : impossible de trouver la fonction membre surchargée dans 'Sommet'
-  c:\users\machine\documents\log2810 structures discretes\tp\tp1 graph\tp1\sommet.h(15): note: voir la déclaration de 'Sommet'
+﻿  Arc.cpp
+c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\robot.h(39): error C2061: erreur de syntaxe : identificateur 'Sommet'
+c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\arc.cpp(26): error C2084: la fonction 'Arc::Arc(void)' a déjà un corps
+  c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\arc.cpp(5): note: voir la définition précédente de '{ctor}'
+  Chemin.cpp
+c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\robot.h(39): error C2061: erreur de syntaxe : identificateur 'Sommet'
+c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\sommet.h(42): error C2065: 'Objet' : identificateur non déclaré
+c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\sommet.h(42): error C2059: erreur de syntaxe : '>'
+  Graph.cpp
+c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\robot.h(39): error C2061: erreur de syntaxe : identificateur 'Sommet'
+c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\sommet.h(42): error C2065: 'Objet' : identificateur non déclaré
+c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\sommet.h(42): error C2059: erreur de syntaxe : '>'
+c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\graph.cpp(14): warning C4018: '<' : incompatibilité signed/unsigned
+c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\graph.cpp(17): warning C4018: '<' : incompatibilité signed/unsigned
   main.cpp
-c:\users\machine\documents\log2810 structures discretes\tp\tp1 graph\tp1\sommet.h(42): error C2065: 'Objet' : identificateur non déclaré
-c:\users\machine\documents\log2810 structures discretes\tp\tp1 graph\tp1\sommet.h(42): error C2059: erreur de syntaxe : '>'
+c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\robot.h(39): error C2061: erreur de syntaxe : identificateur 'Sommet'
+  Objet.cpp
+c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\robot.h(39): error C2061: erreur de syntaxe : identificateur 'Sommet'
+c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\graph.h(30): error C2065: 'Sommet' : identificateur non déclaré
+c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\graph.h(30): error C2923: 'std::vector' : 'Sommet' n'est pas un argument de type modèle valide pour le paramètre '_Ty'
+c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\graph.h(30): error C2903: 'allocator' : le symbole n'est ni un modèle de classe, ni un modèle de fonction
+c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\graph.h(30): error C3203: 'allocator' : la classe modèle non spécialisée ne peut pas être utilisée comme argument modèle pour le paramètre modèle '_Alloc' ; type réel attendu
+c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\graph.h(37): error C2143: erreur de syntaxe : absence de ';' avant '*'
+c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\graph.h(37): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\graph.h(37): error C2238: jetons inattendus avant ';'
+c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\graph.h(39): error C2061: erreur de syntaxe : identificateur 'Sommet'
+c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\graph.h(40): error C2065: 'Sommet' : identificateur non déclaré
+c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\graph.h(40): error C2059: erreur de syntaxe : '>'
+c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\sommet.h(42): error C2065: 'Objet' : identificateur non déclaré
+c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\sommet.h(42): error C2059: erreur de syntaxe : '>'
+  Robot.cpp
+c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\robot.h(39): error C2061: erreur de syntaxe : identificateur 'Sommet'
+  Sommet.cpp
+c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\robot.h(39): error C2061: erreur de syntaxe : identificateur 'Sommet'
+c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\sommet.cpp(6): error C2511: 'Sommet::Sommet(void)' : impossible de trouver la fonction membre surchargée dans 'Sommet'
+  c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\sommet.h(15): note: voir la déclaration de 'Sommet'
   Génération de code en cours...

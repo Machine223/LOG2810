@@ -4,6 +4,7 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
+#include <sstream> // convertir les string en int
 
 #include "Arc.h"
 #include "Sommet.h"

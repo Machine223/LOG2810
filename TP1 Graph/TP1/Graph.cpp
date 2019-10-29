@@ -28,21 +28,21 @@ void Graph::creerGraphe(const string & nomFichier)
 	ifstream fichier(nomFichier);
 	if (fichier.is_open())
 	{
-		int temp1, temp2, temp3, temp;
+		string temp1, temp2, temp3, temp;
 		while (fichier.peek() != '\n')
 		{
 			getline(fichier, temp, ',');
 			getline(fichier, temp1, ',');
 			getline(fichier, temp2, ',');
 			getline(fichier, temp3, ',');
-			tabSommets_.push_back(new Sommet(int(temp),int(temp1),int(temp2),int(temp3)));
+			tabSommets_.push_back(new Sommet(stoi(temp), stoi(temp1), stoi(temp2), stoi(temp3)));
 		}
 
 		getline(fichier, temp);
 
 		while (fichier.peek() != '\n')
 		{
-			Sommet* sommets[2];
+			/*Sommet* sommets[2];
 			getline(fichier, temp, ',');
 			sommets[0] = findSommet(temp);
 			getline(fichier, temp, ',');
@@ -54,7 +54,7 @@ void Graph::creerGraphe(const string & nomFichier)
 			sommets[0]->ajouterVoisin(arc);
 			sommets[1]->ajouterVoisin(arc);
 
-			tabArcs_.push_back(arc);
+			tabArcs_.push_back(arc);*/
 		}
 	}
 }

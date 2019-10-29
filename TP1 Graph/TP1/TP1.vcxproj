@@ -120,6 +120,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Arc.cpp" />
+    <ClCompile Include="Chemin.cpp" />
     <ClCompile Include="Graph.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Objet.cpp" />
@@ -131,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Arc.h" />
+    <ClInclude Include="Chemin.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="Objet.h" />
     <ClInclude Include="Robot.h" />
