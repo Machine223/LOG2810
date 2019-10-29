@@ -28,12 +28,14 @@ void Graph::creerGraphe(const string & nomFichier)
 	ifstream fichier(nomFichier);
 	if (fichier.is_open())
 	{
-		int temp1, temp2, temp;
+		int temp1, temp2, temp3, temp;
 		while (fichier.peek() != '\n')
 		{
+			getline(fichier, temp, ',');
 			getline(fichier, temp1, ',');
-			getline(fichier, temp2, ';');
-			tabSommets_.push_back(new Sommet(int(temp1), int(temp2)));
+			getline(fichier, temp2, ',');
+			getline(fichier, temp3, ',');
+			tabSommets_.push_back(new Sommet(int(temp),int(temp1),int(temp2),int(temp3)));
 		}
 
 		getline(fichier, temp);
