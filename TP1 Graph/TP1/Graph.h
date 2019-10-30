@@ -33,13 +33,13 @@ class Graph
 	void prendreCommande();
 	void afficherCommande();
 	Sommet getSommet(int numero); 
-	Sommet* getReferenceSommet(int id);
-	void updateSommetObjects(vector<int> objects);
+	//Sommet* getReferenceSommet(int id);
+	//void updateSommetObjects(vector<int> objects);
 
 	private:
 	Sommet* trouverSommet(const string& numero);
-	void viderGraphe();
-	int findNext(Sommet noeud);
+	//void viderGraphe();
+	//int findNext(Sommet noeud);
 	std::vector<Sommet *> tabSommets_;
 	std::vector<Arc*> tabArcs_;
 	int size_;// added
