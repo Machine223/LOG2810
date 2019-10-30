@@ -40,5 +40,6 @@ class Graph
 	int findNext(Sommet noeud);
 	vector<Sommet*> tabSommets_;
 	vector<Arc*> tabArcs_;
+	int size_;// added
 };
 
