@@ -12,6 +12,3 @@ Sommet::Sommet(int numero, int nbObjetA, int nbObjetB, int nbObjetC)
 
 }
 
-Sommet::~Sommet()
-{
-}

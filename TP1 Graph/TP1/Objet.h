@@ -1,4 +1,11 @@
 #pragma once
+#include <string>
+#include <vector>
+
+#include "Sommet.h"
+
+using namespace std;
+class Sommet;
 class Objet
 {
 	public:

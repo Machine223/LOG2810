@@ -4,6 +4,7 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
+#include <sstream> // convertir les string en int
 
 #include "Arc.h"
 #include "Sommet.h"
@@ -12,6 +13,8 @@
 
 using namespace std;
 
+class Sommet;
+class Arc;
 class Graph
 {
 	public:
@@ -29,14 +32,16 @@ class Graph
 	void afficherGraphe(vector<Sommet> graphe);
 	void prendreCommande();
 	void afficherCommande();
-	void plusCourtChemin(const string& origine, const string& destination, Robot* robot); // Dijkstra
-
+	Sommet getSommet(int id); // Function needed
+	Sommet* getReferenceSommet(int id);
+	void updateSommetObjects(vector<int> objects);
 
 	private:
 	Sommet* trouverSommet(const string& numero);
 	void viderGraphe();
 	int findNext(Sommet noeud);
-	vector<Sommet*> tabSommets_;
-	vector<Arc*> tabArcs_;
+	std::vector<Sommet *> tabSommets_;
+	std::vector<Arc*> tabArcs_;
+	int size_;// added
 };
 
