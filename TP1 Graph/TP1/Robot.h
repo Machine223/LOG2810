@@ -48,6 +48,6 @@ class Robot
 	double masseMax_;	// masse maximal pouvant etre porter	X = 5 Y = 10 Z = 25 
 	double constante_;	// contante de calcul de la distance	X = 1 Y = 1.5 Z = 2.5 
 	double force_;		// constance de calcul de la distance	X = 1 Y = 0.6 Z = 0.2 
-	string type_;		// X Y Z 
+	char type_;		// X Y Z 
 };
 
