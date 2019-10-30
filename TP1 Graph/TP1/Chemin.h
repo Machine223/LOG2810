@@ -29,7 +29,7 @@ class Chemin
 		~Chemin();
 
 	void plusCourtChemin(int departurePoint); // Dijkstra
-	void calculRobotRapide(Robot* robot);
+	void calculRobotRapide();
 
 
 
@@ -40,7 +40,7 @@ private:
 		int printSolution(vector<int> dist);
 		vector<int> dijkstra(int src);
 		void updateGraph(vector<int> path);
-		void calculateTime(vector<int> path);
+		void calculateTime(int D);
 
 
 		Graph graph_;

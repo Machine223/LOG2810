@@ -33,7 +33,7 @@ int Chemin::shortestDistance(vector<int> distance, vector<bool> isTheShortest)
 	int min = INT_MAX;
 	int min_index = 0;
 
-	for (int node = 0; node < V; node++)
+	for (int node = 0; node < graphSize; node++)
 		if (isTheShortest[node] == false && distance[node] <= min) {
 			min = distance[node];
 			min_index = node;
@@ -47,7 +47,7 @@ int Chemin::minRestObjectsAndDistance(vector<int> arr, vector<int> distance)
 	int min = INT_MAX;
 	int min_index = 0;
 	int min_distance = INT_MAX;
-	for (int node = 0; node < V; node++) {
+	for (int node = 0; node < graphSize; node++) {
 		if (arr[node] < min || (arr[node] == min && distance[node] < distance[min_index])) { // if two nodes have the same ammount 
 			//of collected objects we choose the one with the smallest distance
 			min = arr[node];
@@ -57,9 +57,9 @@ int Chemin::minRestObjectsAndDistance(vector<int> arr, vector<int> distance)
 	}
 
 	// seeing if we can find two uncompleted commands which gives a shortest path than found
-	for (int node1 = 0; node1 < V; node1++)
-		for (int node2 = 0; node2 < V; node2++)
-			if ((node2 != node1) && arr[node2] != 0 // u different from v and Restant[u] different from 0
+	for (int node1 = 0; node1 < graphSize; node1++)
+		for (int node2 = 0; node2 < graphSize; node2++)
+			if ((node2 != node1) && arr[node2] != 0 // node1 different from node2 and Restant[node2] different from 0
 				&& ((2 * commande[0] - objetsRecolt[node1][0] - objetsRecolt[node2][0]) >= commande[0])
 				&& ((2 * commande[1] - objetsRecolt[node1][1] - objetsRecolt[node2][1]) >= commande[1])
 				&& ((2 * commande[2] - objetsRecolt[node1][2] - objetsRecolt[node2][2]) >= commande[2])
@@ -77,7 +77,7 @@ int Chemin::minRestObjectsAndDistance(vector<int> arr, vector<int> distance)
 int Chemin::printSolution(vector<int> dist)
 {
 	printf("Vertex \t\t Distance \t\t Objets Reco \n");
-	for (int i = 0; i < V; i++)
+	for (int i = 0; i < graphSize; i++)
 		printf("%d \t\t %d \t\t %d \t\t %d \t\t %d \n", i, dist[i], objetsRecolt[i][0], objetsRecolt[i][1], objetsRecolt[i][2]);
 	return 0;
 }
@@ -133,7 +133,11 @@ void Chemin::updateGraph(vector<int> path)
 {
 	int c0, c1, c2; // command 0 to object of type A ...
 	int tmp;
+	int objetsPreleves;
 	for (int i = path.size() - 1; i >= 0; i--) { //following the shortest path and picking objects
+		if (i != (path.size() - 1)) { //point de depart
+			calculateTime(graph_.getSommet(path[i]).getDistanceTo(&graph_.getSommet(path[i+1])));
+		}
 		Sommet* node = graph_.getReferenceSommet(path[i]);
 		//cout << "commande" << commande[0] << commande[1] << commande[2];
 		c0 = commande[0] - node->getNbObjetA();
@@ -141,25 +145,40 @@ void Chemin::updateGraph(vector<int> path)
 		c2 = commande[2] - node->getNbObjetC();
 		commande[0] = ((c0) < 0) ? 0 : (c0);
 		tmp = ((-c0) < 0) ? 0 : (-c0);
-		node->setNbObjetA(tmp);
+		objetsPreleves = node->getNbObjetA() - tmp;
+		if (objetsPreleves != 0) { // un prelevement de poids a été effectué
+			Time += objetsPreleves * 10; // temps de prelevement
+			Masse += objetsPreleves * POIDS_A;
+			node->setNbObjetA(tmp);
+		}
 		commande[1] = ((c1) < 0) ? 0 : (c1);
 		tmp = ((-c1) < 0) ? 0 : (-c1);
-		node->setNbObjetB(tmp);
+		objetsPreleves = node->getNbObjetB() - tmp;
+		if (objetsPreleves != 0) { // un prelevement de poids a été effectué
+			Time += objetsPreleves * 10; // temps de prelevement
+			Masse += objetsPreleves * POIDS_B;
+			node->setNbObjetB(tmp);
+		}
 		commande[2] = ((c2) < 0) ? 0 : (c2);
 		tmp = ((-c2) < 0) ? 0 : (-c2);
-		node->setNbObjetC(tmp);
+		objetsPreleves = node->getNbObjetB() - tmp;
+		if (objetsPreleves != 0) { // un prelevement de poids a été effectué
+			Time += objetsPreleves * 10; // temps de prelevement
+			Masse += objetsPreleves * POIDS_C;
+			node->setNbObjetC(tmp);
+		}
 	}
 }
 
-void Chemin::calculateTime(vector<int> path)
+void Chemin::calculateTime(int D)
 {
 	int k;
 	if (RobotPlusRapide == "X")
-		k = 1 + m;
+		k = 1 + Masse;
 	else if (RobotPlusRapide == "Y")
-		k= 1.5 +0.6*m;
+		k= 1.5 +0.6*Masse;
 	else if (RobotPlusRapide == "Z")
-		k = 2.5+0.2*m;
+		k = 2.5+0.2*Masse;
 	Time += D * k;
 }
 
@@ -204,7 +223,7 @@ void Chemin::plusCourtChemin(int departurePoint)
 			cout << "\n";
 			//Sommet* updatedGraph = 
 			updateGraph(currentPath);
-			/*for (int i = 0; i < V; i++)
+			/*for (int i = 0; i < graphSize; i++)
 				Graph[i] = updatedGraph[i];*/
 			nPaths++;
 			cout << "Path:: ";
@@ -220,9 +239,11 @@ void Chemin::plusCourtChemin(int departurePoint)
 			cout << "NEXT START POINT" << startPoint << "\n";
 		}
 
-		dijkstra(0);
+		vector<int> tab = dijkstra(0);
+		calculateTime(tab[startPoint]);
 		Paths.push_back(startPoint);
 		int back = pathBoolean[startPoint];
+		int Dist = 0;
 		while (back != 0) {
 			Paths.push_back(back);
 			back = pathBoolean[back];
@@ -233,6 +254,8 @@ void Chemin::plusCourtChemin(int departurePoint)
 		for (int i = 0; i < Paths.size(); i++) {
 			cout << Paths[i] << "=>";
 		}
+		cout << "Robot Choisi" << RobotPlusRapide << " : \n";
+		cout << "temps pris" << Time << " : \n";
 
 
 	}
@@ -240,7 +263,7 @@ void Chemin::plusCourtChemin(int departurePoint)
 		cout << "Chemin Impossible";
 }
 
-void Chemin::calculRobotRapide(Robot * robot)
+void Chemin::calculRobotRapide()
 {
 	int masseTotale = commande[0] * POIDS_A + commande[1] * POIDS_B + commande[2] * POIDS_C;
 	if (masseTotale <= 5)

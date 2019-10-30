@@ -1,37 +1,56 @@
 ﻿  Arc.cpp
-c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\robot.h(39): error C2061: erreur de syntaxe : identificateur 'Sommet'
-c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\arc.cpp(26): error C2084: la fonction 'Arc::Arc(void)' a déjà un corps
-  c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\arc.cpp(5): note: voir la définition précédente de '{ctor}'
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\robot.h(39): error C2061: erreur de syntaxe : identificateur 'Sommet'
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\arc.cpp(26): error C2084: la fonction 'Arc::Arc(void)' a déjà un corps
+  e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\arc.cpp(5): note: voir la définition précédente de '{ctor}'
   Chemin.cpp
-c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\robot.h(39): error C2061: erreur de syntaxe : identificateur 'Sommet'
-c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\sommet.h(42): error C2065: 'Objet' : identificateur non déclaré
-c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\sommet.h(42): error C2059: erreur de syntaxe : '>'
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\robot.h(39): error C2061: erreur de syntaxe : identificateur 'Sommet'
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\sommet.h(49): error C2065: 'Objet' : identificateur non déclaré
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\sommet.h(49): error C2059: erreur de syntaxe : '>'
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\sommet.h(49): error C2976: 'std::vector' : nombre d'arguments modèle insuffisant
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.15.26726\include\vector(625): note: voir la déclaration de 'std::vector'
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\chemin.cpp(179): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\chemin.cpp(181): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\chemin.cpp(230): warning C4018: '<' : incompatibilité signed/unsigned
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\chemin.cpp(254): warning C4018: '<' : incompatibilité signed/unsigned
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\chemin.cpp(268): warning C4552: '*' : résultat de l'expression non utilisé
   Graph.cpp
-c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\robot.h(39): error C2061: erreur de syntaxe : identificateur 'Sommet'
-c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\sommet.h(42): error C2065: 'Objet' : identificateur non déclaré
-c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\sommet.h(42): error C2059: erreur de syntaxe : '>'
-c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\graph.cpp(14): warning C4018: '<' : incompatibilité signed/unsigned
-c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\graph.cpp(17): warning C4018: '<' : incompatibilité signed/unsigned
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\robot.h(39): error C2061: erreur de syntaxe : identificateur 'Sommet'
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\sommet.h(49): error C2065: 'Objet' : identificateur non déclaré
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\sommet.h(49): error C2059: erreur de syntaxe : '>'
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\sommet.h(49): error C2976: 'std::vector' : nombre d'arguments modèle insuffisant
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.15.26726\include\vector(625): note: voir la déclaration de 'std::vector'
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\graph.cpp(14): warning C4018: '<' : incompatibilité signed/unsigned
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\graph.cpp(17): warning C4018: '<' : incompatibilité signed/unsigned
   main.cpp
-c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\robot.h(39): error C2061: erreur de syntaxe : identificateur 'Sommet'
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\robot.h(39): error C2061: erreur de syntaxe : identificateur 'Sommet'
   Objet.cpp
-c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\robot.h(39): error C2061: erreur de syntaxe : identificateur 'Sommet'
-c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\graph.h(30): error C2065: 'Sommet' : identificateur non déclaré
-c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\graph.h(30): error C2923: 'std::vector' : 'Sommet' n'est pas un argument de type modèle valide pour le paramètre '_Ty'
-c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\graph.h(30): error C2903: 'allocator' : le symbole n'est ni un modèle de classe, ni un modèle de fonction
-c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\graph.h(30): error C3203: 'allocator' : la classe modèle non spécialisée ne peut pas être utilisée comme argument modèle pour le paramètre modèle '_Alloc' ; type réel attendu
-c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\graph.h(37): error C2143: erreur de syntaxe : absence de ';' avant '*'
-c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\graph.h(37): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
-c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\graph.h(37): error C2238: jetons inattendus avant ';'
-c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\graph.h(39): error C2061: erreur de syntaxe : identificateur 'Sommet'
-c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\graph.h(40): error C2065: 'Sommet' : identificateur non déclaré
-c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\graph.h(40): error C2059: erreur de syntaxe : '>'
-c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\sommet.h(42): error C2065: 'Objet' : identificateur non déclaré
-c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\sommet.h(42): error C2059: erreur de syntaxe : '>'
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\robot.h(39): error C2061: erreur de syntaxe : identificateur 'Sommet'
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\graph.h(30): error C2065: 'Sommet' : identificateur non déclaré
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\graph.h(30): error C2923: 'std::vector' : 'Sommet' n'est pas un argument de type modèle valide pour le paramètre '_Ty'
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\graph.h(30): error C2903: 'allocator' : le symbole n'est ni un modèle de classe, ni un modèle de fonction
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\graph.h(30): error C3203: 'allocator' : la classe modèle non spécialisée ne peut pas être utilisée comme argument modèle pour le paramètre modèle '_Alloc' ; type réel attendu
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\graph.h(33): error C3646: 'getSommet' : spécificateur de substitution inconnu
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\graph.h(33): error C2059: erreur de syntaxe : '('
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\graph.h(33): error C2238: jetons inattendus avant ';'
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\graph.h(34): error C2143: erreur de syntaxe : absence de ';' avant '*'
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\graph.h(34): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\graph.h(34): error C2238: jetons inattendus avant ';'
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\graph.h(38): error C2143: erreur de syntaxe : absence de ';' avant '*'
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\graph.h(38): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\graph.h(38): error C2238: jetons inattendus avant ';'
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\graph.h(40): error C2061: erreur de syntaxe : identificateur 'Sommet'
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\graph.h(41): error C2065: 'Sommet' : identificateur non déclaré
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\graph.h(41): error C2059: erreur de syntaxe : '>'
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\graph.h(41): error C2976: 'std::vector' : nombre d'arguments modèle insuffisant
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.15.26726\include\vector(625): note: voir la déclaration de 'std::vector'
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\sommet.h(49): error C2065: 'Objet' : identificateur non déclaré
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\sommet.h(49): error C2059: erreur de syntaxe : '>'
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\sommet.h(49): error C2976: 'std::vector' : nombre d'arguments modèle insuffisant
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.15.26726\include\vector(625): note: voir la déclaration de 'std::vector'
   Robot.cpp
-c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\robot.h(39): error C2061: erreur de syntaxe : identificateur 'Sommet'
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\robot.h(39): error C2061: erreur de syntaxe : identificateur 'Sommet'
   Sommet.cpp
-c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\robot.h(39): error C2061: erreur de syntaxe : identificateur 'Sommet'
-c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\sommet.cpp(6): error C2511: 'Sommet::Sommet(void)' : impossible de trouver la fonction membre surchargée dans 'Sommet'
-  c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\sommet.h(15): note: voir la déclaration de 'Sommet'
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\robot.h(39): error C2061: erreur de syntaxe : identificateur 'Sommet'
+e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\sommet.cpp(6): error C2511: 'Sommet::Sommet(void)' : impossible de trouver la fonction membre surchargée dans 'Sommet'
+  e:\polytechnique de montréal\2nd year\automne\log2810\log2810\tp1 graph\tp1\sommet.h(15): note: voir la déclaration de 'Sommet'
   Génération de code en cours...
