@@ -29,7 +29,7 @@ class Graph
 
 	void creerGraphe(const string& nomFichier);
 
-	void afficherGraphe(vector<Sommet> graphe);
+	void afficherGraphe();
 	//void prendreCommande();	// A faire
 	//void afficherCommande();  // A faire
 	Sommet getSommet(int numero); 

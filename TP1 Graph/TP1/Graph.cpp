@@ -1,4 +1,5 @@
 #include "Graph.h"
+#include"Sommet.h"
 #include <fstream>
 #include <algorithm>
 #include <map>
@@ -77,9 +78,12 @@ Sommet * Graph::trouverSommet(const string & numero)
 	return NULL;
 }
 
-void Graph::afficherGraphe(vector<Sommet> graphe)
+void Graph::afficherGraphe()
 {
 	for (int i = 0; i < tabSommets_.size(); i++) {
-		cout << "(" <<  tabSommets_[i]->getNbObjetA() <<  ","<< tabSommets_[i]->getNbObjetB() <<"," << tabSommets_[i]->getNbObjetC() << ",";
+		//cout << "(" <<  tabSommets_[i]->getNbObjetA() <<  ","<< tabSommets_[i]->getNbObjetB() <<"," << tabSommets_[i]->getNbObjetC() << ",";
+		for (int j = 0; j < tabSommets_.size(); j++) {
+			cout << "(" << tabSommets_[i]->getNbObjetA() << "," << tabSommets_[i]->getNbObjetB() << "," << tabSommets_[i]->getNbObjetC() << "," << "((" << tabSommets_[i]->getVoisin()[0] << "," << tabSommets_[i]->getVoisin()[1] << "))";
+		}
 	}
 }
