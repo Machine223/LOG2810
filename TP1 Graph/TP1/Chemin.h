@@ -29,31 +29,33 @@ class Chemin
 		~Chemin();
 
 	void plusCourtChemin(int departurePoint); // Dijkstra
-	void calculRobotRapide(Robot* robot);
+	void calculRobotRapide();
 
 
 
-	private:
 
-	int shortestDistance(vector<int> distance, vector<bool> isTheShortest);
-	int minRestObjectsAndDistance(vector<int> arr, vector<int> distance);
-	int printSolution(vector<int> dist);
-	vector<int> dijkstra(int src);
-	void updateGraph(vector<int> path);
-	void calculateTime(vector<int> path);
+private:
+
+		int shortestDistance(vector<int> distance, vector<bool> isTheShortest);
+		int minRestObjectsAndDistance(vector<int> arr, vector<int> distance);
+		int printSolution(vector<int> dist);
+		vector<int> dijkstra(int src);
+		void updateGraph(vector<int> path);
+		void calculateTime(int D);
 
 
-	Graph graph_;
-	vector<int> commande;
-	vector<vector<int>> objetsRecolt;
-	vector<int> pathBoolean;
-	vector<int>	Paths;
-	string RobotPlusRapide;
-	double Time;
-	int Masse;
+		Graph graph_;
+		vector<int> commande;
+		vector<vector<int>> objetsRecolt;
+		vector<int> pathBoolean;
+		vector<int>	Paths;
+		string RobotPlusRapide;
+		double Time;
+		int Masse;
 
-	int graphSize;
-	int Emergency = -1;
-	int nObjectsType=3;
+		int graphSize;
+		int Emergency = -1;
+		int nObjectsType=3;
+
 };
 
