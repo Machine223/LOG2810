@@ -1,10 +1,6 @@
 #include "Arc.h"
 
 
-Arc::Arc()
-{
-}
-
 Arc::Arc(Sommet * sommets[2], int distance)
 {
 	sommets_[0] = sommets[0];
