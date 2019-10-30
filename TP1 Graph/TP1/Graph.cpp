@@ -66,3 +66,10 @@ Sommet * Graph::trouverSommet(const string & numero)
 			return tabSommets_[i];
 	return NULL;
 }
+
+void Graph::afficherGraphe(vector<Sommet> graphe)
+{
+	for (int i = 0; i < tabSommets_.size(); i++) {
+		cout << "(" <<  tabSommets_[i]->getNbObjetA() <<  ","<< tabSommets_[i]->getNbObjetB() <<"," << tabSommets_[i]->getNbObjetC() << ",";
+	}
+}
