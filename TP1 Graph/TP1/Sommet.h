@@ -21,25 +21,19 @@ class Sommet
 	// Destructeur
 	~Sommet();
 
-
-	// Setters
-	void setNoeud(int numero, int a, int b, int c);
-
 	// Ajoute un voisin
 	void ajouterVoisin(Arc* voisin);
 
 	// Vérifie si le sommet est connecté
-	bool isConnectedTo(Sommet* sommet); // utiliser dan getDistance
+	bool isConnectedTo(Sommet* sommet);
 
-	int getDistanceTo(Sommet* sommet); // needed by Kader // avoir la disatnce entre deux noeud
-
-	// Vérifie s'il a le voisin
+	int getDistanceTo(Sommet* sommet);	
 
 	// Getters
-	int getNumero();
-	int getNbObjetA();
-	int getNbObjetB();
-	int getNbObjetC();
+	int getNumero() const;
+	int getNbObjetA()const;
+	int getNbObjetB()const;
+	int getNbObjetC()const;
 
 	//Setters
 	void setNbObjetA(int nb);
@@ -47,8 +41,8 @@ class Sommet
 	void setNbObjetC(int nb);
 
 	private:
-	vector<Objet> vectorObjet_; // a voir quelle data structure on utilise pour les objets pour faciliter le calcul au maximum!
-	vector<Arc*> vectorArc_;
+	vector<Arc*> vectorArcVoisin_;
+	int degre_;
 	int numero_;
 	int nbObjetA_;
 	int nbObjetB_;

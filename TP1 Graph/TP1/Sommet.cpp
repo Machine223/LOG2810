@@ -12,22 +12,54 @@ Sommet::Sommet(int numero, int nbObjetA, int nbObjetB, int nbObjetC)
 
 }
 
-int Sommet::getNumero()
+Sommet::~Sommet()
+{
+	vectorArcVoisin_.erase(vectorArcVoisin_.begin(), vectorArcVoisin_.end());
+}
+
+// Ajoute un voisin
+void Sommet::ajouterVoisin(Arc * voisin)
+{
+	vectorArcVoisin_.push_back(voisin);
+	degre_++;
+}
+
+bool Sommet::isConnectedTo(Sommet * sommet)
+{
+	// Cherche selon le degre du noeud s'il a ce voisin dans ca liste d'arc
+	for (int i = 0; i < degre_; i++)
+		if (vectorArcVoisin_[i]->contains(sommet))
+			return true;
+	return false;
+}
+
+int Sommet::getDistanceTo(Sommet * sommet)
+{
+	// Vérifie s'il a le voisin
+	if (this->isConnectedTo(sommet)) {
+		return vectorArcVoisin_[0]->getDistance();
+	}
+	return 0;
+}
+
+
+
+int Sommet::getNumero()const
 {
 	return numero_;
 }
 
-int Sommet::getNbObjetA()
+int Sommet::getNbObjetA()const
 {
 	return nbObjetA_;
 }
 
-int Sommet::getNbObjetB()
+int Sommet::getNbObjetB()const
 {
 	return nbObjetB_;
 }
 
-int Sommet::getNbObjetC()
+int Sommet::getNbObjetC()const
 {
 	return nbObjetC_;
 }

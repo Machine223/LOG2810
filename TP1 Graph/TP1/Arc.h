@@ -3,7 +3,6 @@
 #include <vector>
 
 #include "Sommet.h"
-#include "Robot.h"
 #include "Graph.h"
 
 using namespace std;
@@ -25,23 +24,17 @@ class Arc
 	void setDistance(int distance);
 	void setIdentifiant(string identifiant);
 
-	
-
 	// Vérifie s'il contient le sommet
 	bool contains(Sommet* sommet);
 
 	// Getters
 	int getDistance() const;
 	string getIdentifiant() const;
-	Sommet* getTerminal(Sommet* sommetOrigine) const;
-	Sommet** getSommets() const
-	{
-		return (Sommet**)sommets_;
-	}
+	Sommet** getSommets() const;
 
 	private:
-	int distance_;
-	string identifiant_;
-	Sommet* sommets_[2];
+	int distance_; // distance entre Node 1 et Node 2
+	string identifiant_; // Node1 - Node2 
+	Sommet* sommets_[2]; // sommet_[0]== Node1 et sommet_[1]== Node2
 };
 
