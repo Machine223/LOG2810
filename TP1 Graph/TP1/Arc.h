@@ -19,7 +19,7 @@ class Arc
 	// Constructeur
 	Arc();
 	// Constructeur parametre
-	Arc(Sommet * sommets[2], int distance = 1);
+	Arc(Sommet * sommets[2], int distance);
 
 	// Setters
 	void setDistance(int distance);

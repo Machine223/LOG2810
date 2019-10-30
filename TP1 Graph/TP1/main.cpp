@@ -32,17 +32,26 @@ int main()
 	bool option1 = false;
 
 	// Initialisation des objets
-	//Graphe graphe;
+	Graph graphe;
 	//Robot* robot = new Robot();
-	string nomFichier;
+	string nomFichier = "entrepot.txt";
 	ifstream fichier;
-	
 
-	/*int autonomieMax;
-	int autonomieRestante;*/
+	//TEST *********************
 
-	//TEST
-	
+	fichier.open(nomFichier);
+	if (fichier.is_open()) {
+		fichier.close();
+		graphe.creerGraphe(nomFichier);
+		//graphe.afficherGraphe();
+	}
+	else
+	{
+		cout << "Nom de fichier invalide.";
+	}
+	cout << endl << endl;
+
+	//*****************************
 	afficherMenu();
 	//do
 	//{

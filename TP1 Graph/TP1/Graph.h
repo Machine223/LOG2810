@@ -13,6 +13,8 @@
 
 using namespace std;
 
+class Sommet;
+class Arc;
 class Graph
 {
 	public:
@@ -32,13 +34,13 @@ class Graph
 	void afficherCommande();
 	Sommet getSommet(int id); // Function needed
 	Sommet* getReferenceSommet(int id);
-	//void updateSommetObjects(vector<int> objects);
+	void updateSommetObjects(vector<int> objects);
 
 	private:
 	Sommet* trouverSommet(const string& numero);
 	void viderGraphe();
 	int findNext(Sommet noeud);
-	vector<Sommet*> tabSommets_;
-	vector<Arc*> tabArcs_;
+	std::vector<Sommet *> tabSommets_;
+	std::vector<Arc*> tabArcs_;
 };
 

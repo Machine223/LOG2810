@@ -8,6 +8,7 @@
 #include "Arc.h"
 #include "Robot.h"
 #include "Graph.h"
+#include "Objet.h"
 
 using namespace std;
 
@@ -46,7 +47,7 @@ class Sommet
 	int setNbObjetC();
 
 	private:
-	vector<Objet*> vectorObjet_; // a voir quelle data structure on utilise pour les objets pour faciliter le calcul au maximum!
+	vector<Objet> vectorObjet_; // a voir quelle data structure on utilise pour les objets pour faciliter le calcul au maximum!
 	vector<Arc*> vectorArc_;
 	int numero_;
 	int nbObjetA_;
