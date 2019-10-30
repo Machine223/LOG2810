@@ -1,6 +1,9 @@
 #pragma once
 #include <string>
 
+#include "Graph.h"
+#include "Sommet.h"
+
 using namespace std;
 
 const double MASSE_MAX_X = 5.0;
