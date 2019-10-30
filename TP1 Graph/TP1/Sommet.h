@@ -29,9 +29,9 @@ class Sommet
 	void ajouterVoisin(Arc* voisin);
 
 	// Vérifie si le sommet est connecté
-	bool isConnectedTo(Sommet* sommet);
+	bool isConnectedTo(Sommet* sommet); // utiliser dan getDistance
 
-	int getDistanceTo(Sommet* sommet); // needed by Kader
+	int getDistanceTo(Sommet* sommet); // needed by Kader // avoir la disatnce entre deux noeud
 
 	// Vérifie s'il a le voisin
 
@@ -42,9 +42,9 @@ class Sommet
 	int getNbObjetC();
 
 	//Setters
-	int setNbObjetA(int nb);
-	int setNbObjetB(int nb);
-	int setNbObjetC(int nb);
+	void setNbObjetA(int nb);
+	void setNbObjetB(int nb);
+	void setNbObjetC(int nb);
 
 	private:
 	vector<Objet> vectorObjet_; // a voir quelle data structure on utilise pour les objets pour faciliter le calcul au maximum!
