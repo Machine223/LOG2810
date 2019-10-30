@@ -32,7 +32,7 @@ class Graph
 	void afficherGraphe(vector<Sommet> graphe);
 	void prendreCommande();
 	void afficherCommande();
-	Sommet getSommet(int id); // Function needed
+	Sommet getSommet(int id); 
 	Sommet* getReferenceSommet(int id);
 	void updateSommetObjects(vector<int> objects);
 

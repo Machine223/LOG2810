@@ -61,6 +61,14 @@ void Graph::creerGraphe(const string & nomFichier)
 	}
 }
 
+Sommet Graph::getSommet(int numero)
+{
+	for (int i = 0; i < tabSommets_.size(); i++)
+		if (tabSommets_[i]->getNumero() == numero)
+			return *(tabSommets_[i]);
+
+}
+
 Sommet * Graph::trouverSommet(const string & numero)
 {
 	for (int i = 0; i < tabSommets_.size(); i++)

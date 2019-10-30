@@ -64,6 +64,22 @@ int Sommet::getNbObjetC()const
 	return nbObjetC_;
 }
 
+vector<Sommet*> Sommet::getVoisin() const
+{
+	vector<Sommet*> noeudsVoisins;
+	// Recherche dans mon vectorArcVoisin_ pour identifier tout les voisins de ce sommet
+	for (int i = 0; i < vectorArcVoisin_.size(); i++)
+	{
+		Sommet** iteratorSommetsArc = vectorArcVoisin_[i]->getSommets(); // retourn un Sommet**
+
+		if (iteratorSommetsArc[0]->getNumero() != numero_)
+			noeudsVoisins.push_back(iteratorSommetsArc[0]);
+		else
+			noeudsVoisins.push_back(iteratorSommetsArc[1]);
+	}
+	return noeudsVoisins;
+}
+
 void Sommet::setNbObjetA(int nb)
 {
 	nbObjetA_ = nb;

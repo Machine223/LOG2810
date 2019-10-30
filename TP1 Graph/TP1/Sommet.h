@@ -34,6 +34,7 @@ class Sommet
 	int getNbObjetA()const;
 	int getNbObjetB()const;
 	int getNbObjetC()const;
+	vector<Sommet*> getVoisin() const; // retourne un vecteur de sommets voisins
 
 	//Setters
 	void setNbObjetA(int nb);
