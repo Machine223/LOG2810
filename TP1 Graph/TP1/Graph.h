@@ -42,5 +42,6 @@ class Graph
 	int findNext(Sommet noeud);
 	std::vector<Sommet *> tabSommets_;
 	std::vector<Arc*> tabArcs_;
+	int size_;// added
 };
 

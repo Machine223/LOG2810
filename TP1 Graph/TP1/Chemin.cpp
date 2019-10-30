@@ -1,7 +1,7 @@
 #include "Chemin.h"
 
 
-Chemin::Chemin()
+Chemin::Chemin(vector<int> command, Graph graph)
 {
 	//Initiaizing  objetsRecolt
 	for (int i = 0; i < graphSize; i++) {
@@ -15,6 +15,9 @@ Chemin::Chemin()
 	for (int i = 0; i < graphSize; i++) {
 		pathBoolean.push_back(-1);
 	}
+
+	Time = 0;
+	Masse = 0;
 		
 }
 
@@ -22,42 +25,6 @@ Chemin::Chemin()
 Chemin::~Chemin()
 {
 }
-
-
-
-// A C++ program for Dijkstra's single source shortest path algorithm. 
-// The program is for adjacency matrix representation of the graph 
-
-
-
-// Number of vertices in the graph 
-#define V 21
-//struct Sommet
-//{
-//	int id = 0;
-//	int arcs[V] = {};
-//	int objects[3] = {};
-//	Sommet() {};
-//	Sommet(int i, int a[V], int o[3]) {
-//		id = i;
-//		for (int i = 0; i < V; i++) {
-//			arcs[i] = a[i];
-//			if (i < 3) {
-//				objects[i] = o[i];
-//			}
-//		}
-//	};
-//	void printMe() {
-//		cout << "\n *********************** myId = " << id << " \n";
-//		for (int i = 0; i < V; i++) {
-//			cout << "\n arcs[" << i << "]" << arcs[i];
-//			if (i < 3) {
-//				cout << " \n object[" << i << "]" << objects[i];
-//			}
-//		}
-//		cout << " \n";
-//	}
-//};
 
 // return the shortest distance in a given table
 int Chemin::shortestDistance(vector<int> distance, vector<bool> isTheShortest)
@@ -75,7 +42,7 @@ int Chemin::shortestDistance(vector<int> distance, vector<bool> isTheShortest)
 }
 
 // return the most optimized path to get the command, based on distance and number of objects
-int Chemin::minRestObjectsAndDistance(vector<int> arr, vector<int> distance, vector<int> commande)
+int Chemin::minRestObjectsAndDistance(vector<int> arr, vector<int> distance)
 {
 	int min = INT_MAX;
 	int min_index = 0;
@@ -95,7 +62,7 @@ int Chemin::minRestObjectsAndDistance(vector<int> arr, vector<int> distance, vec
 			if ((node2 != node1) && arr[node2] != 0 // u different from v and Restant[u] different from 0
 				&& ((2 * commande[0] - objetsRecolt[node1][0] - objetsRecolt[node2][0]) >= commande[0])
 				&& ((2 * commande[1] - objetsRecolt[node1][1] - objetsRecolt[node2][1]) >= commande[1])
-				&& ((2 * commande[2] - objetsRecolt[node1][2]) - objetsRecolt[node2][2] >= commande[2])
+				&& ((2 * commande[2] - objetsRecolt[node1][2] - objetsRecolt[node2][2]) >= commande[2])
 				&& (distance[node1] + distance[node2]) < min_distance)
 				if ((!graph_.getSommet(node1).isConnectedTo(&graph_.getSommet(node2))) && ((commande[0] - objetsRecolt[node1][0] + graph_.getSommet(node2).getNbObjetA()) >= commande[0])
 					&& ((commande[1] - objetsRecolt[node1][1] + graph_.getSommet(node2).getNbObjetB()) >= commande[1])
@@ -182,126 +149,107 @@ void Chemin::updateGraph(vector<int> path)
 		tmp = ((-c2) < 0) ? 0 : (-c2);
 		node->setNbObjetC(tmp);
 	}
+}
 
-
-	return graph;
+void Chemin::calculateTime(vector<int> path)
+{
+	int k;
+	if (RobotPlusRapide == "X")
+		k = 1 + m;
+	else if (RobotPlusRapide == "Y")
+		k= 1.5 +0.6*m;
+	else if (RobotPlusRapide == "Z")
+		k = 2.5+0.2*m;
+	Time += D * k;
 }
 
 
 
 // driver program to test above function 
-int main()
+void Chemin::plusCourtChemin(int departurePoint)
 {
-	/* Let us create the example graph discussed above*/
-	int sommets[V][3] = { {0, 0, 0}, {0, 0, 0 }, {1, 0, 0 }, {0, 1, 0 }, {3, 0, 1 }, {0, 0, 1 }, {2, 0, 0 }, {2, 1, 0 }, {0, 0, 0 }, {1, 0, 0 }, {0, 1, 0 }, { 0, 0, 0 },
-		{1, 0, 0 }, {3, 0, 1 }, {2, 2, 0 }, {1, 1, 0 }, {0, 1, 0 }, {0, 0, 1 }, {0, 0, 0 }, {0, 2, 0 }, { 1, 1, 3 } };
-
-
-	int graphe[V][V] = { { 0, 10, 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-						{ 10, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-						{ 0, 16, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 29, 0, 0, 0, 0, 0, 0, 0, 0},
-						{ 0, 0, 8, 0, 0, 0, 31, 12, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-						{ 0, 0, 0, 0, 0, 0, 0, 0, 8, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-						{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 24, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-						{ 15, 0, 0, 31, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 38, 0, 0, 0},
-						{ 0, 0, 0, 12, 0, 0, 0, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-						{ 0, 0, 0, 0, 8, 0, 0, 11, 0, 0, 0, 0, 0, 0, 19, 0, 0, 26, 0, 0, 0},
-						{ 0, 0, 0, 16, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 0, 0},
-						{ 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 0, 0, 0, 0},
-						{ 0, 0, 0, 0, 0, 24, 10, 0, 0, 0, 0, 0, 0, 0, 0, 23, 0, 0, 0, 0, 0},
-						{ 0, 0, 29, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0, 15, 0, 0, 0, 0},
-						{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0},
-						{ 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0},
-						{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23, 0, 0, 0, 0, 0, 0, 0, 0, 29},
-						{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0},
-						{ 0, 0, 0, 0, 0, 0, 38, 0, 26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 26, 0},
-						{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 27},
-						{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 26, 0, 0, 0},
-						{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 29, 0, 0, 27, 0, 0}
-	};
-	Sommet graph[V];
-	for (int i = 0; i < V; i++) {
-		Sommet sommet(i, graphe[i], sommets[i]);
-		graph[i] = sommet;
-	}
-
-	for (int i = 0; i < V; i++) {
-		graph[i].printMe();
-	}
-
-	int startPoint = 0;
-	int commande[3] = { 2 ,0,0 };
-	int nPaths = 0;
-	vector<int> Paths;
-	while ((commande[0] + commande[1] + commande[2]) != 0)
-	{
-		int tab[V] = {};
-		int* tab2 = dijkstra(graph, startPoint);
-		for (int i = 0; i < V; i++)
-			tab[i] = tab2[i];
-		int Restant[V] = {};
-		for (int v = 0; v < V; v++) {
-			objetsRecolt[v][0] = (-(objetsRecolt[v][0] - commande[0]) < 0) ? 0 : (commande[0] - objetsRecolt[v][0]);
-			objetsRecolt[v][1] = (-(objetsRecolt[v][1] - commande[1]) < 0) ? 0 : (commande[1] - objetsRecolt[v][1]);
-			objetsRecolt[v][2] = (-(objetsRecolt[v][2] - commande[2]) < 0) ? 0 : (commande[2] - objetsRecolt[v][2]);
-			Restant[v] = objetsRecolt[v][0] + objetsRecolt[v][1] + objetsRecolt[v][2];
-		}
-		printSolution(tab);
-		int idChanged;
-		if (Emergency == -1) {
-			idChanged = minRestObjectsAndDistance(Restant, tab, commande, graph);
-
-		}
-		else
+	if (RobotPlusRapide != "N") {
+		Time += (commande[0] + commande[1] + commande[2]) * 10;
+		int startPoint = departurePoint;
+		int nPaths = 0;
+		vector<int> Paths;
+		while ((commande[0] + commande[1] + commande[2]) != 0)
 		{
-			idChanged = Emergency;
-			Emergency = -1;
+			vector<int> tab = dijkstra(startPoint);
+			vector<int> Restant;
+			for (int v = 0; v < graphSize; v++) {
+				objetsRecolt[v][0] = ((commande[0] - objetsRecolt[v][0]) < 0) ? 0 : (commande[0] - objetsRecolt[v][0]);
+				objetsRecolt[v][1] = ((commande[1] - objetsRecolt[v][1]) < 0) ? 0 : (commande[1] - objetsRecolt[v][1]);
+				objetsRecolt[v][2] = ((commande[2] - objetsRecolt[v][2]) < 0) ? 0 : (commande[2] - objetsRecolt[v][2]);
+				Restant.push_back(objetsRecolt[v][0] + objetsRecolt[v][1] + objetsRecolt[v][2]);
+			}
+			printSolution(tab);
+			int idChanged;
+			if (Emergency == -1) {
+				idChanged = minRestObjectsAndDistance(Restant, tab);
+			}
+			else
+			{
+				idChanged = Emergency;
+				Emergency = -1;
+			}
+			vector<int> currentPath; // path taken to get to idChanged Node
+			currentPath.push_back(idChanged);
+			int back = pathBoolean[idChanged];
+			while (back != startPoint) {
+				currentPath.push_back(back);
+				back = pathBoolean[back];
+			}
+			currentPath.push_back(startPoint);
+			cout << "\n";
+			//Sommet* updatedGraph = 
+			updateGraph(currentPath);
+			/*for (int i = 0; i < V; i++)
+				Graph[i] = updatedGraph[i];*/
+			nPaths++;
+			cout << "Path:: ";
+			for (int i = 0; i < currentPath.size(); i++) {
+				cout << currentPath[i];
+				Paths.push_back(currentPath[currentPath.size() - i - 1]);
+			}
+			cout << "\n";
+			currentPath.clear();
+			objetsRecolt.clear();
+			pathBoolean.clear();
+			startPoint = idChanged;
+			cout << "NEXT START POINT" << startPoint << "\n";
 		}
-		vector<int> currentPath; // path taken to get to idChanged Node
-		currentPath.push_back(idChanged);
-		int back = pathBoolean[idChanged];
-		while (back != startPoint) {
-			currentPath.push_back(back);
+
+		dijkstra(0);
+		Paths.push_back(startPoint);
+		int back = pathBoolean[startPoint];
+		while (back != 0) {
+			Paths.push_back(back);
 			back = pathBoolean[back];
 		}
-		currentPath.push_back(startPoint);
-		cout << "\n";
-		//Sommet* updatedGraph = 
-		updateGraph(graph, currentPath, commande);
-		/*for (int i = 0; i < V; i++)
-			Graph[i] = updatedGraph[i];*/
-		nPaths++;
-		cout << "Path:: ";
-		for (int i = 0; i < currentPath.size(); i++) {
-			cout << currentPath[i];
-			Paths.push_back(currentPath[currentPath.size() - i - 1]);
-		}
-		cout << "\n";
-		currentPath.clear();
-		for (int i = 0; i < V; i++) {
-			objetsRecolt[i][0] = 0;
-			objetsRecolt[i][1] = 0;
-			objetsRecolt[i][2] = 0;
+		Paths.push_back(0);
+		
+		cout << "Results" << nPaths << " : \n";
+		for (int i = 0; i < Paths.size(); i++) {
+			cout << Paths[i] << "=>";
 		}
 
-		startPoint = idChanged;
-		cout << "NEXT START POINT" << startPoint << "\n";
+
 	}
+	else
+		cout << "Chemin Impossible";
+}
 
-	dijkstra(graph, 0);
-	Paths.push_back(startPoint);
-	int back = pathBoolean[startPoint];
-	while (back != 0) {
-		Paths.push_back(back);
-		back = pathBoolean[back];
-	}
-	Paths.push_back(0);
+void Chemin::calculRobotRapide(Robot * robot)
+{
+	int masseTotale = commande[0] * POIDS_A + commande[1] * POIDS_B + commande[2] * POIDS_C;
+	if (masseTotale <= 5)
+		RobotPlusRapide = "X";
+	else if (masseTotale <= 10)
+		RobotPlusRapide = "Y";
+	else if (masseTotale <= 25)
+		RobotPlusRapide = "Z";
+	else 
+		RobotPlusRapide = "N";
 
-
-	cout << "Results" << nPaths << " : \n";
-	for (int i = 0; i < Paths.size(); i++) {
-		cout << Paths[i] << "=>";
-	}
-
-	return 0;
 }
