@@ -23,16 +23,17 @@ class Chemin
 	// Constructeur par paramètres
 
 	// Destructeur
-	~Chemin();
+		~Chemin();
 
-	void plusCourtChemin(const string& origine, const string& destination, Robot* robot); // Dijkstra
+	void plusCourtChemin(int departurePoint); // Dijkstra
 	void calculRobotRapide(Robot* robot);
+
 
 
 private:
 
 		int shortestDistance(vector<int> distance, vector<bool> isTheShortest);
-		int minRestObjectsAndDistance(vector<int> arr, vector<int> distance, vector<int> commande);
+		int minRestObjectsAndDistance(vector<int> arr, vector<int> distance);
 		int printSolution(vector<int> dist);
 		vector<int> dijkstra(int src);
 		void updateGraph(vector<int> path);
@@ -40,6 +41,7 @@ private:
 		vector<int> commande;
 		vector<vector<int>> objetsRecolt;
 		vector<int> pathBoolean;
+		vector<int>	Paths;
 		int graphSize;
 		int Emergency = -1;
 		int nObjectsType=3;
