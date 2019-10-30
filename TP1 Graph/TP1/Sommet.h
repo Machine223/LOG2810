@@ -29,9 +29,9 @@ class Sommet
 	void ajouterVoisin(Arc* voisin);
 
 	// Vérifie si le sommet est connecté
-	bool isConnectedTo(Sommet* sommet);
+	bool isConnectedTo(Sommet* sommet); // utiliser dan getDistance
 
-	int getDistanceTo(Sommet* sommet); // needed by Kader
+	int getDistanceTo(Sommet* sommet); // needed by Kader // avoir la disatnce entre deux noeud
 
 	// Vérifie s'il a le voisin
 

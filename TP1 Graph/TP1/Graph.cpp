@@ -42,7 +42,7 @@ void Graph::creerGraphe(const string & nomFichier)
 
 		while (fichier.peek() != '\n')
 		{
-			Sommet* sommets[2]; // on creer l'attribut pour Arc pour recevoir les sommets adjacent et leur distance
+			Sommet* sommets[2];			// on creer l'attribut pour Arc pour recevoir les sommets adjacent et leur distance
 			getline(fichier, temp1, ','); // Noeud1
 			sommets[0] = trouverSommet(temp1);
 			getline(fichier, temp2, ','); // Noeud2
