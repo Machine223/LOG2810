@@ -9,14 +9,15 @@ Graph::Graph()
 {
 }
 
-//Graph::Graph(const Graph & graphe)
-//{
-//	for (int i = 0; i < graphe.tabSommets_.size(); i++)
-//		tabSommets_.push_back(new Sommet(*(graphe.tabSommets_[i])));
-//
-//	for (int i = 0; i < graphe.tabArcs_.size(); i++)
-//		tabArcs_.push_back(new Arc(*(graphe.tabArcs_[i])));
-//}
+Graph::Graph(const Graph & graphe)
+{
+	// Ajout des sommets
+	for (int i = 0; i < graphe.tabSommets_.size(); i++)
+		tabSommets_.push_back(new Sommet(*(graphe.tabSommets_[i])));
+	// Ajout des arcs
+	for (int i = 0; i < graphe.tabArcs_.size(); i++)
+		tabArcs_.push_back(new Arc(*(graphe.tabArcs_[i])));
+}
 
 
 Graph::~Graph()
