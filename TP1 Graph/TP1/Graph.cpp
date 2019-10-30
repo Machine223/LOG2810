@@ -52,7 +52,9 @@ void Graph::creerGraphe(const string & nomFichier)
 			getline(fichier, temp3, '\n'); // la distance
 			Arc* monArc = new Arc(sommets, stoi(temp3));
 			monArc->setIdentifiant(to_string(sommets[0]->getNumero()) + "-" + to_string(sommets[1]->getNumero()));
-			// ajouter les voisins a monArc
+			// ajouter les voisins a monArc  
+			sommets[0]->ajouterVoisin(monArc);
+			sommets[1]->ajouterVoisin(monArc);
 
 			tabArcs_.push_back(monArc);
 		}
