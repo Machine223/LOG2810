@@ -30,6 +30,8 @@ class Sommet
 	// Vérifie si le sommet est connecté
 	bool isConnectedTo(Sommet* sommet);
 
+	int getDistanceTo(Sommet* sommet); // needed by Kader
+
 	// Vérifie s'il a le voisin
 
 	// Getters
@@ -37,6 +39,11 @@ class Sommet
 	int getNbObjetA();
 	int getNbObjetB();
 	int getNbObjetC();
+
+	//Setters
+	int setNbObjetA();
+	int setNbObjetB();
+	int setNbObjetC();
 
 	private:
 	vector<Objet*> vectorObjet_; // a voir quelle data structure on utilise pour les objets pour faciliter le calcul au maximum!

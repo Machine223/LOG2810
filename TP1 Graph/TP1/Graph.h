@@ -30,8 +30,9 @@ class Graph
 	void afficherGraphe(vector<Sommet> graphe);
 	void prendreCommande();
 	void afficherCommande();
-	
-
+	Sommet getSommet(int id); // Function needed
+	Sommet* getReferenceSommet(int id);
+	//void updateSommetObjects(vector<int> objects);
 
 	private:
 	Sommet* trouverSommet(const string& numero);
