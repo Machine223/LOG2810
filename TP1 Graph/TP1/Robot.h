@@ -39,7 +39,7 @@ class Robot
 
 	// Cacul de temps 
 	double calculerKx(); // calcul de la distance 
-	double calculDistance(Sommet* sommet1, Sommet* sommet2);
+	//double calculDistance(Sommet* sommet1, Sommet* sommet2);
 	double calculerT();
 
 	private:

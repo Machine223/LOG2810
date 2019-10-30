@@ -42,9 +42,9 @@ class Sommet
 	int getNbObjetC();
 
 	//Setters
-	int setNbObjetA(int nb);
-	int setNbObjetB(int nb);
-	int setNbObjetC(int nb);
+	void setNbObjetA(int nb);
+	void setNbObjetB(int nb);
+	void setNbObjetC(int nb);
 
 	private:
 	vector<Objet> vectorObjet_; // a voir quelle data structure on utilise pour les objets pour faciliter le calcul au maximum!
