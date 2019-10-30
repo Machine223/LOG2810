@@ -1,6 +1,4 @@
 #include "Arc.h"
-#include "Arc.h"
-
 
 
 Arc::Arc()
@@ -60,20 +58,14 @@ bool Arc::contains(Sommet* sommet)
 		return true;
 	}
 	else
-	{
 		return false;
-	}
+
 }
 
-// Obtenir l'autre sommet de l'arc
-Sommet* Arc::getTerminal(Sommet* sommetOrigine) const
+
+Sommet ** Arc::getSommets() const
 {
-	if (sommetOrigine->getNumero() == sommets_[0]->getNumero())
-	{
-		if (sommets_[1] != nullptr)
-			return sommets_[1];
-	}
-	return sommets_[0];
+	return (Sommet**)sommets_;
 }
 
 

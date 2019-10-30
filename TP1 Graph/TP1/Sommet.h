@@ -41,7 +41,6 @@ class Sommet
 	void setNbObjetC(int nb);
 
 	private:
-	vector<Objet> vectorObjet_; // a voir quelle data structure on utilise pour les objets pour faciliter le calcul au maximum!
 	vector<Arc*> vectorArcVoisin_;
 	int degre_;
 	int numero_;
