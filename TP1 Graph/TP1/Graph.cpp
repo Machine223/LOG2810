@@ -12,12 +12,12 @@ Graph::Graph()
 
 Graph::Graph(const Graph & graphe)
 {
-	// Ajout des sommets
-	for (int i = 0; i < graphe.tabSommets_.size(); i++)
-		tabSommets_.push_back(new Sommet(*(graphe.tabSommets_[i])));
-	// Ajout des arcs
-	for (int i = 0; i < graphe.tabArcs_.size(); i++)
-		tabArcs_.push_back(new Arc(*(graphe.tabArcs_[i])));
+	//// Ajout des sommets
+	//for (int i = 0; i < graphe.tabSommets_.size(); i++)
+	//	tabSommets_.push_back(new Sommet(*(graphe.tabSommets_[i])));
+	//// Ajout des arcs
+	//for (int i = 0; i < graphe.tabArcs_.size(); i++)
+	//	tabArcs_.push_back(new Arc(*(graphe.tabArcs_[i])));
 }
 
 
@@ -68,7 +68,6 @@ Sommet Graph::getSommet(int numero)
 	for (int i = 0; i < tabSommets_.size(); i++)
 		if (tabSommets_[i]->getNumero() == numero)
 			return *(tabSommets_[i]);
-
 }
 
 Sommet * Graph::trouverSommet(const string & numero)

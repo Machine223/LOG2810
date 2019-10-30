@@ -12,14 +12,14 @@ class Graph;
 class Arc
 {
 	public:
-	// Destructeur
-	~Arc();
-
+	
 	// Constructeur
 	Arc();
 	// Constructeur parametre
 	Arc(Sommet * sommets[2], int distance);
 
+	// Destructeur
+	~Arc();
 	// Setters
 	void setDistance(int distance);
 	void setIdentifiant(string identifiant);
