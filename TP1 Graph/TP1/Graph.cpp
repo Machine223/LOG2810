@@ -1,25 +1,13 @@
 #include "Graph.h"
-#include"Sommet.h"
 #include <fstream>
 #include <algorithm>
-#include <map>
 #include <utility>
 
 
 Graph::Graph()
 {
+	graphSize_ = 0;
 }
-
-Graph::Graph(const Graph & graphe)
-{
-	//// Ajout des sommets
-	//for (int i = 0; i < graphe.tabSommets_.size(); i++)
-	//	tabSommets_.push_back(new Sommet(*(graphe.tabSommets_[i])));
-	//// Ajout des arcs
-	//for (int i = 0; i < graphe.tabArcs_.size(); i++)
-	//	tabArcs_.push_back(new Arc(*(graphe.tabArcs_[i])));
-}
-
 
 Graph::~Graph()
 {
@@ -37,53 +25,41 @@ void Graph::creerGraphe(const string & nomFichier)
 			getline(fichier, temp1, ',');
 			getline(fichier, temp2, ',');
 			getline(fichier, temp3, '\n');
-			tabSommets_.push_back(new Sommet(stoi(temp), stoi(temp1), stoi(temp2), stoi(temp3)));
+			objets_.push_back({ stoi(temp1), stoi(temp2), stoi(temp3) });
+			graphSize_++;
 		}
 
 		getline(fichier, temp);
 
-		while (fichier.peek() != '\n')
-		{
-			Sommet* sommets[2];			// on creer l'attribut pour Arc pour recevoir les sommets adjacent et leur distance
-			getline(fichier, temp1, ','); // Noeud1
-			sommets[0] = trouverSommet(temp1);
-			getline(fichier, temp2, ','); // Noeud2
-			sommets[1] = trouverSommet(temp2);
-
-			// Creation de l'arc et de la distance entre deux noeuds
-			getline(fichier, temp3, '\n'); // la distance
-			Arc* monArc = new Arc(sommets, stoi(temp3));
-			monArc->setIdentifiant(to_string(sommets[0]->getNumero()) + "-" + to_string(sommets[1]->getNumero()));
-			// ajouter les voisins a monArc  
-			sommets[0]->ajouterVoisin(monArc);
-			sommets[1]->ajouterVoisin(monArc);
-
-			tabArcs_.push_back(monArc);
+		for (int i = 0; i < graphSize_; i++) {
+			vector<int> tmp;
+			for (int j = 0; j < graphSize_; j++) {
+				tmp.push_back(0);
+			}
+			arcs_.push_back(move(tmp));
 		}
+
+		while (fichier.peek() != '\n' && !fichier.eof())
+		{
+			getline(fichier, temp1, ','); // Noeud1
+			getline(fichier, temp2, ','); // Noeud2
+			getline(fichier, temp3, '\n'); // la distance
+			arcs_[stoi(temp1)][stoi(temp2)] = stoi(temp3);
+			arcs_[stoi(temp2)][stoi(temp1)] = stoi(temp3);
+		}
+
+		for (int i = 0; i < graphSize_; i++) {
+			Sommet sommet(i, arcs_[i], objets_[i]);
+			graph_.push_back(sommet);
+		}
+		graphSize_ = graph_.size();
+		fichier.close();
 	}
-}
+	else
+		cout << "fichierIntrouvable";
 
-Sommet Graph::getSommet(int numero)
-{
-	for (int i = 0; i < tabSommets_.size(); i++)
-		if (tabSommets_[i]->getNumero() == numero)
-			return *(tabSommets_[i]);
-}
-
-Sommet * Graph::trouverSommet(const string & numero)
-{
-	for (int i = 0; i < tabSommets_.size(); i++)
-		if (tabSommets_[i]->getNumero() == stoi(numero))
-			return tabSommets_[i];
-	return NULL;
 }
 
 void Graph::afficherGraphe()
 {
-	for (int i = 0; i < tabSommets_.size(); i++) {
-		//cout << "(" <<  tabSommets_[i]->getNbObjetA() <<  ","<< tabSommets_[i]->getNbObjetB() <<"," << tabSommets_[i]->getNbObjetC() << ",";
-		for (int j = 0; j < tabSommets_.size(); j++) {
-			cout << "(" << tabSommets_[i]->getNbObjetA() << "," << tabSommets_[i]->getNbObjetB() << "," << tabSommets_[i]->getNbObjetC() << "," << "((" << tabSommets_[i]->getVoisin()[0] << "," << tabSommets_[i]->getVoisin()[1] << "))";
-		}
-	}
 }
