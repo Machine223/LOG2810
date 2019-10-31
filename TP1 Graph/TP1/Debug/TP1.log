@@ -1,0 +1,5 @@
+﻿  Chemin.cpp
+e:\polytechnique de montréal\2nd year\automne\log2810\tp1\tp1\log2810\tp1 graph\tp1\chemin.cpp(218): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+e:\polytechnique de montréal\2nd year\automne\log2810\tp1\tp1\log2810\tp1 graph\tp1\chemin.cpp(220): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+e:\polytechnique de montréal\2nd year\automne\log2810\tp1\tp1\log2810\tp1 graph\tp1\chemin.cpp(273): warning C4018: '<' : incompatibilité signed/unsigned
+  TP1.vcxproj -> E:\Polytechnique de Montréal\2nd Year\AUTOMNE\LOG2810\TP1\TP1\LOG2810\TP1 Graph\TP1\Debug\TP1.exe

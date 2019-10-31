@@ -22,6 +22,8 @@ public:
 	// Destructeur
 	~Commande();
 
+	void reset();
+
 	void prendreCommande();
 	void afficherCommande();
 

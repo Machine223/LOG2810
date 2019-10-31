@@ -4,6 +4,13 @@ Commande::~Commande()
 {
 }
 
+void Commande::reset()
+{
+	nObjetsA = 0;
+	nObjetsB = 0;
+	nObjetsC = 0;
+}
+
 void Commande::prendreCommande() {
 	int A, B, C;
 	cout << endl << "Veuillez entrer la commande :" << endl << " nombre d'0bjets de type A: ";

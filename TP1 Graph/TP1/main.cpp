@@ -24,8 +24,6 @@ int main()
 	int option;
 	// Initialisation des objets
 	Graph graphe;
-	Commande commande;
-	Chemin chemin;
 	string nomFichier = "entrepot.txt";
 
 	//TEST *********************
@@ -33,7 +31,10 @@ int main()
 	cout << endl << endl;
 
 	//*****************************
-	
+	Commande commande;
+	Chemin chemin;
+
+
 	while (!quit) {
 		system("CLS");
 		afficherMenu();
@@ -60,6 +61,7 @@ int main()
 			chemin.setCommand(commande);
 			chemin.setGraph(graphe);
 			chemin.plusCourtChemin(0);
+			chemin.reset();
 			break;
 		}
 		case 6: {
@@ -87,4 +89,3 @@ void afficherMenu()
 	cout << "================================================" << endl << endl;
 	cout << "Choose One Option below:" << endl << endl;
 }
-

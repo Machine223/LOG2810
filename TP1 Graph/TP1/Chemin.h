@@ -22,6 +22,7 @@ class Chemin
 
 		void plusCourtChemin(int departurePoint); // Dijkstra
 		void calculRobotRapide();
+		void reset();
 
 		void setCommand(Commande command);
 		void setGraph(Graph graph);
@@ -37,8 +38,8 @@ class Chemin
 		Graph graph_;
 		Commande commande;
 		vector<vector<int>> objetsRecolt;
-		vector<int> pathBoolean;
-		vector<int>	Paths;
+		vector< int> pathBoolean;
+		vector< int>	Paths;
 		string RobotPlusRapide;
 		double Time;
 		int Masse;

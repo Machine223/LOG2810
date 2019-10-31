@@ -174,6 +174,7 @@ void Chemin::updateGraph(vector<int> path)
 			calculateTime(graph_.graph_[path[i]].arcs_[path[i+1]]);
 		}
 		Sommet node = graph_.graph_[path[i]];
+		cout << path[i] << "  -> ";
 		//cout << "commande" << commande[0] << commande[1] << commande[2];
 		c0 = commande.nObjetsA - node.objects_[0];
 		c1 = commande.nObjetsB - node.objects_[1];
@@ -183,31 +184,34 @@ void Chemin::updateGraph(vector<int> path)
 		objetsPreleves = node.objects_[0] - tmp;
 		if (objetsPreleves != 0) { // un prelevement de poids a été effectué
 			Time += objetsPreleves * 10; // temps de prelevement
-			Masse += objetsPreleves * POIDS_A;
+			Masse += objetsPreleves * 1;
 			graph_.graph_[path[i]].objects_[0] = tmp;
+			cout  << " colecting A  ->";
 		}
 		commande.nObjetsB = ((c1) < 0) ? 0 : (c1);
 		tmp = ((-c1) < 0) ? 0 : (-c1);
 		objetsPreleves = node.objects_[1] - tmp;
 		if (objetsPreleves != 0) { // un prelevement de poids a été effectué
 			Time += objetsPreleves * 10; // temps de prelevement
-			Masse += objetsPreleves * POIDS_B;
+			Masse += objetsPreleves * 3;
 			graph_.graph_[path[i]].objects_[1] = tmp;
+			cout << " colecting B  ->";
 		}
 		commande.nObjetsC = ((c2) < 0) ? 0 : (c2);
 		tmp = ((-c2) < 0) ? 0 : (-c2);
 		objetsPreleves = node.objects_[2] - tmp;
 		if (objetsPreleves != 0) { // un prelevement de poids a été effectué
 			Time += objetsPreleves * 10; // temps de prelevement
-			Masse += objetsPreleves * POIDS_C;
+			Masse += objetsPreleves * 6;
 			graph_.graph_[path[i]].objects_[2] = tmp;
+			cout << " colecting C  ->";
 		}
 	}
 }
 
 void Chemin::calculateTime(int D)
 {
-	int k;
+	int k = 0;
 	if (RobotPlusRapide == "X")
 		k = 1 + Masse;
 	else if (RobotPlusRapide == "Y")
@@ -225,11 +229,12 @@ void Chemin::plusCourtChemin(int departurePoint)
 	calculRobotRapide();
 	if (graphSize == 0)
 		cout << "Graphe vide !!" << endl;
-	else if (RobotPlusRapide != "N" || graphSize > 0) {
+	else if (RobotPlusRapide != "N" && graphSize > 0) {
 		//Time += (commande[0] + commande[1] + commande[2]) * 10;
 		int startPoint = departurePoint;
 		int nPaths = 0;
 		vector<int> Paths;
+		cout << "Trajet pris  : \n";
 		while ((commande.nObjetsA + commande.nObjetsB + commande.nObjetsC) != 0)
 		{
 			vector<int> tab = dijkstra(startPoint);
@@ -281,30 +286,32 @@ void Chemin::plusCourtChemin(int departurePoint)
 		vector<int> tab = dijkstra(0);
 		calculateTime(tab[startPoint]);
 		Paths.push_back(startPoint);
-		int back = pathBoolean[startPoint];
 		int Dist = 0;
-		while (back != 0) {
+		int size = pathBoolean.size();
+		int back = startPoint;
+		while (pathBoolean[back] != 0) {
+			cout  << pathBoolean[back] << " -> ";
 			Paths.push_back(back);
 			back = pathBoolean[back];
+			size--;
 		}
+			cout << 0;
+
 		Paths.push_back(0);
 		
-		cout << "Result: number of traject( " << nPaths << ") : \n";
-		for (int i = 0; i < Paths.size(); i++) {
-			cout << "=>" << Paths[i] ;
-		}
+		
 		cout << "\n Robot Choisi est le robot " << RobotPlusRapide << " : \n";
 		cout << "temps pris: " << Time << " secondes \n";
 
 
 	}
 	else
-		cout << "Chemin Impossible";
+		cout << "Chemin Impossible" << endl;
 }
 
 void Chemin::calculRobotRapide(){
-	int masseTotale = commande.nObjetsA * POIDS_A + commande.nObjetsB * POIDS_B + commande.nObjetsC * POIDS_C;
-	if (masseTotale = 0) {
+	int masseTotale = commande.nObjetsA * 1 + commande.nObjetsB * 3 + commande.nObjetsC * 6;
+	if (masseTotale == 0) {
 		cout << "commande vide !!";
 		RobotPlusRapide = "N";
 	}
@@ -317,4 +324,10 @@ void Chemin::calculRobotRapide(){
 	else 
 		RobotPlusRapide = "N";
 
+}
+
+void Chemin::reset()
+{
+	Time = 0;
+	Masse = 0;
 }

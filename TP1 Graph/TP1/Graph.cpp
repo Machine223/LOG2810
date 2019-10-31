@@ -68,24 +68,22 @@ void Graph::afficherGraphe()
 
 
 	// affichage des objets de chaque noeuds
-	int counter = 0;
-	int counter1 = 0;
-	for (int j = 0; j < this->objets_.size(); j++) {
-		cout << "(" << counter++ << ")";
-		for (int h = 0; h < this->objets_[j].size(); h++) {
-			cout << objets_[j][h] << " ,";
+	cout << "Votre graphe est " <<  endl;
+
+	for (int i = 0; i < graphSize_; i++) {
+		int counter = 0;
+		cout << "(Noeud " << i << ", ";
+		for (int j = 0; j < 3; j++) {
+			cout << graph_[i].objects_[j] << " ,";
 		}
 		// affichage des arcs 
-		cout << endl;
-	}
-	for (int j = 0; j < this->arcs_.size(); j++) {
-		cout << "(" << counter1++ << ")";
-
-		for (int h = 0; h < this->arcs_[j].size(); h++) {
-			if (arcs_[j][h] != 0) {
-				cout << "(" << arcs_[j][h] << "," << "noeudVoisin " << h << " )";
+		cout << "(";
+		for (int j = 0; j < graphSize_; j++) {
+			if (graph_[i].arcs_[j] != 0) {
+				counter++;
+				cout << "( noeud voisin" << counter << " " << j << ", distance" << counter << " " << graph_[i].arcs_[j] << "),";
 			}
 		}
-		cout << endl;
+		cout << ")" << endl;
 	}
 }
