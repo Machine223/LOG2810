@@ -62,4 +62,30 @@ void Graph::creerGraphe(const string & nomFichier)
 
 void Graph::afficherGraphe()
 {
+	//(Noeud0, NbObjetA, nbObjetB, nbObjetC, ((noeud voisin1 0, distance1 0), (noeud voisin2 0, distance2 0),
+		//..., (noeud voisinn 0, distancen 0)))
+	// affichage des numero de noeuds
+
+
+	// affichage des objets de chaque noeuds
+	int counter = 0;
+	int counter1 = 0;
+	for (int j = 0; j < this->objets_.size(); j++) {
+		cout << "(" << counter++ << ")";
+		for (int h = 0; h < this->objets_[j].size(); h++) {
+			cout << objets_[j][h] << " ,";
+		}
+		// affichage des arcs 
+		cout << endl;
+	}
+	for (int j = 0; j < this->arcs_.size(); j++) {
+		cout << "(" << counter1++ << ")";
+
+		for (int h = 0; h < this->arcs_[j].size(); h++) {
+			if (arcs_[j][h] != 0) {
+				cout << "(" << arcs_[j][h] << "," << "noeudVoisin " << h << " )";
+			}
+		}
+		cout << endl;
+	}
 }
