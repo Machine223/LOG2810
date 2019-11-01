@@ -1,1 +1,9 @@
-﻿  TP1.vcxproj -> C:\Users\Machine\Documents\LOG2810 STRUCTURES DISCRETES\TP\LOG2810\TP1 Graph\TP1\Debug\TP1.exe
+﻿  Chemin.cpp
+c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\chemin.cpp(214): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\chemin.cpp(216): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+c:\users\machine\documents\log2810 structures discretes\tp\log2810\tp1 graph\tp1\chemin.cpp(269): warning C4018: '<' : incompatibilité signed/unsigned
+  Graph.cpp
+  Sommet.cpp
+  main.cpp
+  Génération de code en cours...
+  TP1.vcxproj -> C:\Users\Machine\Documents\LOG2810 STRUCTURES DISCRETES\TP\LOG2810\TP1 Graph\TP1\Debug\TP1.exe

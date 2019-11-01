@@ -1,4 +1,9 @@
-
+//********************************************************************************
+// Nom         : Graph.h
+// Auteurs     : Abderrahim Ammour, Abdelkader Zobiri, Hanane Ikhelef
+// Date        : 27 octobre 2018
+// Description : représente notre graph avec les sommets et les arcs
+//********************************************************************************
 #pragma once
 #include <string>
 #include <vector>
@@ -14,21 +19,19 @@ class Graph
 {
 	public:
 
-		vector<vector<int>> objets_;
-		vector<vector<int>> arcs_;
-		vector<Sommet> graph_;
-		int graphSize_;
+	// Constructeur
+	Graph();
 
+	// Destructeur
+	~Graph();
 
-		// Constructeur
-		Graph();
+	void creerGraphe(const string& nomFichier);
 
-		// Destructeur
-		~Graph();
-
-		void creerGraphe(const string& nomFichier);
-
-		void afficherGraphe();
-
+	void afficherGraphe();
+	
+	vector<vector<int>> objets_;
+	vector<vector<int>> arcs_;
+	vector<Sommet> graph_;
+	int graphSize_;
 };
 

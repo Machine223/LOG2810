@@ -1,8 +1,14 @@
+//********************************************************************************
+// Nom         : Graph.h
+// Auteurs     : Abderrahim Ammour, Abdelkader Zobiri, Hanane Ikhelef
+// Date        : 27 octobre 2018
+// Description : implémentation de Graph.h
+//********************************************************************************
+
 #include "Graph.h"
 #include <fstream>
 #include <algorithm>
 #include <utility>
-
 
 Graph::Graph()
 {

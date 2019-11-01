@@ -1,3 +1,10 @@
+//********************************************************************************
+// Nom         : main.cpp
+// Auteurs     : Abderrahim Ammour, Abdelkader Zobiri, Hanane Ikhelef
+// Date        : 27 octobre 2018
+// Description : Main du programme
+//********************************************************************************
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -22,22 +29,17 @@ int main()
 	// Initialisation des variables
 	bool quit = false;
 	int option;
+
 	// Initialisation des objets
 	Graph graphe;
 	string nomFichier = "entrepot.txt";
-
-	//TEST *********************
-	
-	cout << endl << endl;
-
-	//*****************************
 	Commande commande;
 	Chemin chemin;
-
-
+	
 	while (!quit) {
 		system("CLS");
 		afficherMenu();
+
 		cin >> option;
 		switch (option)
 		{
@@ -60,7 +62,7 @@ int main()
 		case 5: {
 			chemin.setCommand(commande);
 			chemin.setGraph(graphe);
-			chemin.plusCourtChemin(0);
+			chemin.plusCourtChemin(0); //Le point de depart et d'arriver est toujours le noeud 0.
 			chemin.reset();
 			break;
 		}
@@ -87,5 +89,5 @@ void afficherMenu()
 	cout << "5. Trouver le plus court chemin." << endl;
 	cout << "6. Quitter." << endl << endl;
 	cout << "================================================" << endl << endl;
-	cout << "Choose One Option below:" << endl << endl;
+	cout << "Choisir une des options en haut :" << endl << endl;
 }

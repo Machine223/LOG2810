@@ -1,3 +1,10 @@
+//********************************************************************************
+// Nom         : Commande.h
+// Auteurs     : Abderrahim Ammour, Abdelkader Zobiri, Hanane Ikhelef
+// Date        : 27 octobre 2018
+// Description : Permet à l'utilisateur de placer une commande d'objet
+//********************************************************************************
+
 #pragma once
 #include <string>
 #include <vector>
@@ -10,13 +17,7 @@ using namespace std;
 
 class Commande
 {
-public:
-
-	int nObjetsA;
-	int nObjetsB;
-	int nObjetsC;
-
-
+	public:
 	// Constructeur
 	Commande() : nObjetsA(0), nObjetsB(0), nObjetsC(0) {};
 	// Destructeur
@@ -27,4 +28,7 @@ public:
 	void prendreCommande();
 	void afficherCommande();
 
+	int nObjetsA;
+	int nObjetsB;
+	int nObjetsC;
 };

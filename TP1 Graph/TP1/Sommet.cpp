@@ -1,16 +1,17 @@
+//********************************************************************************
+// Nom         : Sommet.h
+// Auteurs     : Abderrahim Ammour, Abdelkader Zobiri, Hanane Ikhelef
+// Date        : 27 octobre 2018
+// Description : implémentation de Sommet.h
+//********************************************************************************
+
 #include "Sommet.h"
+Sommet::Sommet()
+{
+	id = 0;
+}
 Sommet::Sommet(int i, vector<int> arcList, vector<int> o) {
 	id = i;
 	arcs_ = arcList;
 	objects_ = o;
 };
-void Sommet::printMe() {
-	cout << "\n *********************** myId = " << id << " \n";
-	for (int i = 0; i < arcs_.size(); i++) {
-		cout << "\n arcs[" << i << "]" << arcs_[i];
-		if (i < 3) {
-			cout << " \n object[" << i << "]" << objects_[i];
-		}
-	}
-	cout << " \n";
-}

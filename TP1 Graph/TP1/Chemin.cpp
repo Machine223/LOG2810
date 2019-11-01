@@ -1,11 +1,18 @@
+//********************************************************************************
+// Nom         : Chemin.cpp
+// Auteurs     : Abderrahim Ammour, Abdelkader Zobiri, Hanane Ikhelef
+// Date        : 27 octobre 2018
+// Description : implémentation de Chemin.h
+//********************************************************************************
+
 #include "Chemin.h"
+
 Chemin::Chemin()
 {
 	//Initiaizing  objetsRecolt
 	graphSize = 0;
 	Time = 0;
 	Masse = 0;
-
 }
 
 Chemin::Chemin(Commande command, Graph graph)
@@ -25,10 +32,8 @@ Chemin::Chemin(Commande command, Graph graph)
 	for (int i = 0; i < graphSize; i++) {
 		pathBoolean.push_back(0);
 	}
-
 	Time = 0;
-	Masse = 0;
-		
+	Masse = 0;	
 }
 
 void Chemin::setCommand(Commande command)
@@ -53,8 +58,6 @@ void Chemin::setGraph(Graph graph)
 	for (int i = 0; i < graphSize; i++) {
 		pathBoolean.push_back(0);
 	}
-
-
 }
 
 Chemin::~Chemin()
@@ -152,14 +155,7 @@ vector<int> Chemin::dijkstra(int src)
 				objetsRecolt[node][2] = objetsRecolt[min_index][2] + graph_.graph_[node].objects_[2];
 			}
 		}
-
-		
-			
-
 	}
-
-
-
 	return distance;
 }
 
@@ -186,7 +182,7 @@ void Chemin::updateGraph(vector<int> path)
 			Time += objetsPreleves * 10; // temps de prelevement
 			Masse += objetsPreleves * 1;
 			graph_.graph_[path[i]].objects_[0] = tmp;
-			cout  << " colecting A  ->";
+			cout  << "colecting A -> ";
 		}
 		commande.nObjetsB = ((c1) < 0) ? 0 : (c1);
 		tmp = ((-c1) < 0) ? 0 : (-c1);
@@ -195,7 +191,7 @@ void Chemin::updateGraph(vector<int> path)
 			Time += objetsPreleves * 10; // temps de prelevement
 			Masse += objetsPreleves * 3;
 			graph_.graph_[path[i]].objects_[1] = tmp;
-			cout << " colecting B  ->";
+			cout << "colecting B -> ";
 		}
 		commande.nObjetsC = ((c2) < 0) ? 0 : (c2);
 		tmp = ((-c2) < 0) ? 0 : (-c2);
@@ -204,7 +200,7 @@ void Chemin::updateGraph(vector<int> path)
 			Time += objetsPreleves * 10; // temps de prelevement
 			Masse += objetsPreleves * 6;
 			graph_.graph_[path[i]].objects_[2] = tmp;
-			cout << " colecting C  ->";
+			cout << "colecting C -> ";
 		}
 	}
 }
@@ -222,10 +218,10 @@ void Chemin::calculateTime(int D)
 }
 
 
-
 // driver program to test above function 
 void Chemin::plusCourtChemin(int departurePoint)
 {
+	
 	calculRobotRapide();
 	if (graphSize == 0)
 		cout << "Graphe vide !!" << endl;
@@ -295,15 +291,12 @@ void Chemin::plusCourtChemin(int departurePoint)
 			back = pathBoolean[back];
 			size--;
 		}
-			cout << 0;
+		cout << 0;
 
 		Paths.push_back(0);
-		
-		
-		cout << "\n Robot Choisi est le robot " << RobotPlusRapide << " : \n";
-		cout << "temps pris: " << Time << " secondes \n";
 
-
+		cout << endl << "\n Robot utilise : Type " << RobotPlusRapide << " \n";
+		cout << "\n Temps: " << Time << " secondes \n"<< endl;
 	}
 	else
 		cout << "Chemin Impossible" << endl;

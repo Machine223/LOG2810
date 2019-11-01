@@ -1,3 +1,10 @@
+//********************************************************************************
+// Nom         : Commande.h
+// Auteurs     : Abderrahim Ammour, Abdelkader Zobiri, Hanane Ikhelef
+// Date        : 27 octobre 2018
+// Description : implémentation de Commande.h
+//********************************************************************************
+
 #include "Commande.h"
 
 Commande::~Commande()
