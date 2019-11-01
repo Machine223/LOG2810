@@ -29,6 +29,7 @@ int main()
 	// Initialisation des variables
 	bool quit = false;
 	int option;
+	bool first = false;
 
 	// Initialisation des objets
 	Graph graphe;
@@ -44,7 +45,10 @@ int main()
 		switch (option)
 		{
 		case 1: {
-			graphe.creerGraphe(nomFichier);
+			if (!first) {
+				graphe.creerGraphe(nomFichier);
+				first = true;
+			}
 			break;
 		}
 		case 2: {

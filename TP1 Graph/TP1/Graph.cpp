@@ -17,16 +17,12 @@ Graph::Graph()
 
 Graph::~Graph()
 {
-	objets_.erase(objets_.begin(), objets_.end());
-	arcs_.erase(arcs_.begin(), arcs_.end());
-	graph_.erase(graph_.begin(), graph_.end());
-	objets_.clear();
-	arcs_.clear();
-	graph_.clear();
+	
 }
 
 void Graph::creerGraphe(const string & nomFichier)
 {
+
 	ifstream fichier(nomFichier, ios::in); //declaration du fichier en mode lecture et ouverture du fichier 
 	if (fichier.is_open())
 	{
@@ -43,6 +39,7 @@ void Graph::creerGraphe(const string & nomFichier)
 
 		getline(fichier, temp);
 
+		// initialise un tableau temporaire avec des zero
 		for (int i = 0; i < graphSize_; i++) {
 			vector<int> tmp;
 			for (int j = 0; j < graphSize_; j++) {
