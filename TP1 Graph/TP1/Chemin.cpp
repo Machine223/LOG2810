@@ -225,7 +225,9 @@ void Chemin::plusCourtChemin(int departurePoint)
 	calculRobotRapide();
 	if (graphSize == 0)
 		cout << "Graphe vide !!" << endl;
-	else if (RobotPlusRapide != "N" && graphSize > 0) {
+	else if (RobotPlusRapide != "N" && graphSize > 0 
+		&& commande.nObjetsA <= graph_.getNbMaxObjet('A') && commande.nObjetsB <= graph_.getNbMaxObjet('B')
+		&& commande.nObjetsC <= graph_.getNbMaxObjet('C')) {
 		//Time += (commande[0] + commande[1] + commande[2]) * 10;
 		int startPoint = departurePoint;
 		int nPaths = 0;

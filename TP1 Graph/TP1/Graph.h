@@ -28,6 +28,7 @@ class Graph
 	void creerGraphe(const string& nomFichier);
 
 	void afficherGraphe();
+	int getNbMaxObjet(char objet);
 	
 	vector<vector<int>> objets_;
 	vector<vector<int>> arcs_;

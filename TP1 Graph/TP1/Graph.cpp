@@ -96,3 +96,36 @@ void Graph::afficherGraphe()
 		cout << ")" << endl;
 	}
 }
+
+int Graph::getNbMaxObjet(char objet)
+{
+	int counterA = 0;
+	int counterB = 0;
+	int counterC = 0;
+	for (int i = 0; i < graphSize_; i++) {
+		for (int j = 0; j < 3; j++) {
+			if (j == 0)counterA += graph_[i].objects_[j];
+			if (j == 1)counterB += graph_[i].objects_[j];
+			if (j == 2)counterC += graph_[i].objects_[j];
+		}
+	}
+
+	switch (objet) {
+		case 'A': {
+			return counterA;
+			break;
+		}
+		case 'B': {
+			return counterB;
+			break;
+		}
+		case 'C': {
+			return counterC;
+			break;
+		}
+		default : {
+			return 0;
+			break;
+		}
+	}
+}
