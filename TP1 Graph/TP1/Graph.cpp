@@ -65,7 +65,7 @@ void Graph::creerGraphe(const string & nomFichier)
 		fichier.close();
 	}
 	else
-		cout << "fichierIntrouvable";
+		cout << "******** Le fichier est introuvable ! **********"<< endl<<endl;
 
 }
 
