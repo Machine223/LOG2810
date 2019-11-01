@@ -17,6 +17,12 @@ Graph::Graph()
 
 Graph::~Graph()
 {
+	objets_.erase(objets_.begin(), objets_.end());
+	arcs_.erase(arcs_.begin(), arcs_.end());
+	graph_.erase(graph_.begin(), graph_.end());
+	objets_.clear();
+	arcs_.clear();
+	graph_.clear();
 }
 
 void Graph::creerGraphe(const string & nomFichier)
