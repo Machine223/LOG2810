@@ -221,7 +221,6 @@ void Chemin::calculateTime(int D)
 // driver program to test above function 
 void Chemin::plusCourtChemin(int departurePoint)
 {
-	
 	calculRobotRapide();
 	if (graphSize == 0)
 		cout << "Graphe vide !!" << endl;
