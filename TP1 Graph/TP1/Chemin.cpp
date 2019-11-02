@@ -309,7 +309,7 @@ void Chemin::calculRobotRapide(){
 		cout << "commande vide !!";
 		RobotPlusRapide = "N";
 	}
-	if (masseTotale <= 5)
+	if (masseTotale <= 3)
 		RobotPlusRapide = "X";
 	else if (masseTotale <= 10)
 		RobotPlusRapide = "Y";
