@@ -29,7 +29,7 @@ class Chemin
 	//Destructeur
 	~Chemin();
 
-	void plusCourtChemin(int departurePoint); // Dijkstra
+	void plusCourtChemin(int pointDepart); // Dijkstra
 	void calculRobotRapide();
 	void reset();
 
@@ -41,17 +41,17 @@ class Chemin
 	int printSolution(vector<int> dist);
 	vector<int> dijkstra(int src);
 	void updateGraph(vector<int> path);
-	void calculateTime(int D);
+	void calculateTime(double D);
 
 
 	Graph graph_;
 	Commande commande;
 	vector<vector<int>> objetsRecolt;
 	vector< int> pathBoolean;
-	vector< int>	Paths;
+	
 	string RobotPlusRapide;
 	double Time;
-	int Masse;
+	double Masse;
 
 	int graphSize;
 	int Emergency = -1;

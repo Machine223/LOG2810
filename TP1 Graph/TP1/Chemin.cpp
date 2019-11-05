@@ -15,12 +15,12 @@ Chemin::Chemin()
 	Masse = 0;
 }
 
-Chemin::Chemin(Commande command, Graph graph)
+Chemin::Chemin(Commande commande, Graph graph)
 {
 	//Initiaizing  objetsRecolt
 	graph_ = graph;
 	graphSize = graph_.graphSize_;
-	commande = command;
+	commande = commande;
 	for (int i = 0; i < graphSize; i++) {
 		vector<int> tmp;
 		for (int j = 0; j < nObjectsType; j++)
@@ -205,9 +205,9 @@ void Chemin::updateGraph(vector<int> path)
 	}
 }
 
-void Chemin::calculateTime(int D)
+void Chemin::calculateTime(double D)
 {
-	int k = 0;
+	double k = 0.0;
 	if (RobotPlusRapide == "X")
 		k = 1 + Masse;
 	else if (RobotPlusRapide == "Y")
@@ -224,9 +224,10 @@ void Chemin::plusCourtChemin(int departurePoint)
 	calculRobotRapide();
 	if (graphSize == 0)
 		cout << "Graphe vide !!" << endl;
-	else if (RobotPlusRapide != "N" && graphSize > 0 
-		&& commande.nObjetsA <= graph_.getNbMaxObjet('A') && commande.nObjetsB <= graph_.getNbMaxObjet('B')
-		&& commande.nObjetsC <= graph_.getNbMaxObjet('C')) {
+	else if (RobotPlusRapide != "N" && graphSize > 0 && commande.nObjetsA <= graph_.getNbMaxObjet('A') 
+			&& commande.nObjetsB <= graph_.getNbMaxObjet('B')
+			&& commande.nObjetsC <= graph_.getNbMaxObjet('C')) 
+	{
 		//Time += (commande[0] + commande[1] + commande[2]) * 10;
 		int startPoint = departurePoint;
 		int nPaths = 0;
