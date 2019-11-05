@@ -29,6 +29,10 @@ class Graph
 
 	void afficherGraphe();
 	int getNbMaxObjet(char objet);
+	int getGraphSize_();
+	vector<Sommet> getGraph_();
+
+
 	
 	vector<vector<int>> objets_;
 	vector<vector<int>> arcs_;

@@ -19,7 +19,7 @@ Chemin::Chemin(Commande commande, Graph graph)
 {
 	//Initiaizing  objetsRecolt
 	graph_ = graph;
-	graphSize = graph_.graphSize_;
+	graphSize = graph_.getGraphSize_();
 	commande = commande;
 	for (int i = 0; i < graphSize; i++) {
 		vector<int> tmp;
@@ -46,7 +46,7 @@ void Chemin::setGraph(Graph graph)
 {
 	//Initiaizing  objetsRecolt
 	graph_ = graph;
-	graphSize = graph_.graphSize_;
+	graphSize = graph_.getGraphSize_();
 	for (int i = 0; i < graphSize; i++) {
 		vector<int> tmp;
 		for (int j = 0; j < nObjectsType; j++)
@@ -103,21 +103,12 @@ int Chemin::minRestObjectsAndDistance(vector<int> arr, vector<int> distance)
 				&& ((2 * commande.nObjetsC - objetsRecolt[node1][2] - objetsRecolt[node2][2]) >= commande.nObjetsC)
 				&& (distance[node1] + distance[node2]) < min_distance)
 				if ((graph_.graph_[node1].arcs_[node2] == 0) && ((commande.nObjetsA - objetsRecolt[node1][0] + graph_.graph_[node2].objects_[0]) >= commande.nObjetsA)
-					&& ((commande.nObjetsB - objetsRecolt[node1][1] + graph_.graph_[node2].objects_[1]) >= commande.nObjetsB)
-					&& ((commande.nObjetsC - objetsRecolt[node1][2]) + graph_.graph_[node2].objects_[2] >= commande.nObjetsC))
+					&& ((commande.nObjetsB - objetsRecolt[node1][1] + graph_.getGraph_()[node2].objects_[1]) >= commande.nObjetsB)
+					&& ((commande.nObjetsC - objetsRecolt[node1][2]) + graph_.getGraph_()[node2].objects_[2] >= commande.nObjetsC))
 						// if we have two adjacent vertices 
 						min = arr[node1], min_index = node1, min_distance = (distance[node1] + distance[node2]), Emergency = node2;
 
 	return min_index;
-}
-
-// A utility function to print the constructed distance array 
-int Chemin::printSolution(vector<int> dist)
-{
-	printf("Vertex \t\t Distance \t\t Objets Reco \n");
-	for (int i = 0; i < graphSize; i++)
-		printf("%d \t\t %d \t\t %d \t\t %d \t\t %d \n", i, dist[i], objetsRecolt[i][0], objetsRecolt[i][1], objetsRecolt[i][2]);
-	return 0;
 }
 
 // Function that implements Dijkstra's single source shortest path algorithm 
@@ -146,7 +137,7 @@ vector<int> Chemin::dijkstra(int src)
 			// Update distance[node] when its isTheShortest is false, there is an arc from 
 			// min_index to node, and the distance from src to  node through min_index is smaller than distance[node] 
 
-			int minDistTmp = distance[min_index] + graph_.graph_[min_index].arcs_[node];
+			int minDistTmp = distance[min_index] + graph_.getGraph_()[min_index].arcs_[node];
 			if (!isTheShortest[node] && graph_.graph_[min_index].arcs_[node] && distance[min_index] != INT_MAX && minDistTmp < distance[node]) {
 				distance[node] = minDistTmp;
 				pathBoolean[node] = min_index; // Saving the previous node to get to node within the shortest path so far
@@ -170,37 +161,40 @@ void Chemin::updateGraph(vector<int> path)
 			calculateTime(graph_.graph_[path[i]].arcs_[path[i+1]]);
 		}
 		Sommet node = graph_.graph_[path[i]];
-		cout << path[i] << "  -> ";
-		//cout << "commande" << commande[0] << commande[1] << commande[2];
+		if (i != path.size() - 1 ) // to avoid displaying the start point twice
+			cout << path[i] << "  -> ";
 		c0 = commande.nObjetsA - node.objects_[0];
 		c1 = commande.nObjetsB - node.objects_[1];
 		c2 = commande.nObjetsC - node.objects_[2];
 		commande.nObjetsA = ((c0) < 0) ? 0 : (c0);
 		tmp = ((-c0) < 0) ? 0 : (-c0);
 		objetsPreleves = node.objects_[0] - tmp;
-		if (objetsPreleves != 0) { // un prelevement de poids a été effectué
-			Time += objetsPreleves * 10; // temps de prelevement
+		if (objetsPreleves != 0) { // an object has been lifted
+			Time += objetsPreleves * 10; // time of lifting
 			Masse += objetsPreleves * 1;
 			graph_.graph_[path[i]].objects_[0] = tmp;
-			cout  << "colecting A -> ";
+			if(i!= path.size() - 1 ) // to avoid displaying the start point twice
+				cout  << "colecting A -> ";
 		}
 		commande.nObjetsB = ((c1) < 0) ? 0 : (c1);
 		tmp = ((-c1) < 0) ? 0 : (-c1);
 		objetsPreleves = node.objects_[1] - tmp;
-		if (objetsPreleves != 0) { // un prelevement de poids a été effectué
-			Time += objetsPreleves * 10; // temps de prelevement
+		if (objetsPreleves != 0) {// an object has been lifted
+			Time += objetsPreleves * 10; // time of lifting
 			Masse += objetsPreleves * 3;
 			graph_.graph_[path[i]].objects_[1] = tmp;
-			cout << "colecting B -> ";
+			if (i != path.size() - 1) // to avoid displaying the start point twice
+				cout << "colecting B -> ";
 		}
 		commande.nObjetsC = ((c2) < 0) ? 0 : (c2);
 		tmp = ((-c2) < 0) ? 0 : (-c2);
 		objetsPreleves = node.objects_[2] - tmp;
-		if (objetsPreleves != 0) { // un prelevement de poids a été effectué
-			Time += objetsPreleves * 10; // temps de prelevement
+		if (objetsPreleves != 0) { // an object has been lifted
+			Time += objetsPreleves * 10;  // time of lifting
 			Masse += objetsPreleves * 6;
 			graph_.graph_[path[i]].objects_[2] = tmp;
-			cout << "colecting C -> ";
+			if (i != path.size() - 1) // to avoid displaying the start point twice
+				cout << "colecting C -> ";
 		}
 	}
 }
@@ -209,7 +203,7 @@ void Chemin::calculateTime(double D)
 {
 	double k = 0.0;
 	if (RobotPlusRapide == "X")
-		k = 1 + Masse;
+		k = 1.0 + Masse;
 	else if (RobotPlusRapide == "Y")
 		k= 1.5 +0.6*Masse;
 	else if (RobotPlusRapide == "Z")
@@ -221,18 +215,16 @@ void Chemin::calculateTime(double D)
 // driver program to test above function 
 void Chemin::plusCourtChemin(int departurePoint)
 {
-	calculRobotRapide();
+	calculRobotRapide(); // choose the most appropriate robot 
 	if (graphSize == 0)
 		cout << "Graphe vide !!" << endl;
 	else if (RobotPlusRapide != "N" && graphSize > 0 && commande.nObjetsA <= graph_.getNbMaxObjet('A') 
 			&& commande.nObjetsB <= graph_.getNbMaxObjet('B')
 			&& commande.nObjetsC <= graph_.getNbMaxObjet('C')) 
 	{
-		//Time += (commande[0] + commande[1] + commande[2]) * 10;
 		int startPoint = departurePoint;
-		int nPaths = 0;
 		vector<int> Paths;
-		cout << "Trajet pris  : \n";
+		cout << "Trajet pris  : \n 0 -> ";
 		while ((commande.nObjetsA + commande.nObjetsB + commande.nObjetsC) != 0)
 		{
 			vector<int> tab = dijkstra(startPoint);
@@ -243,7 +235,6 @@ void Chemin::plusCourtChemin(int departurePoint)
 				objetsRecolt[v][2] = ((commande.nObjetsC - objetsRecolt[v][2]) < 0) ? 0 : (commande.nObjetsC - objetsRecolt[v][2]);
 				Restant.push_back(objetsRecolt[v][0] + objetsRecolt[v][1] + objetsRecolt[v][2]);
 			}
-			//printSolution(tab);
 			int idChanged;
 			if (Emergency == -1) {
 				idChanged = minRestObjectsAndDistance(Restant, tab);
@@ -261,24 +252,15 @@ void Chemin::plusCourtChemin(int departurePoint)
 				back = pathBoolean[back];
 			}
 			currentPath.push_back(startPoint);
-			//cout << "\n";
-			//Sommet* updatedGraph = 
 			updateGraph(currentPath);
-			/*for (int i = 0; i < graphSize; i++)
-				Graph[i] = updatedGraph[i];*/
-			nPaths++;
-		/*	cout << "Path:: ";*/
 			for (int i = 0; i < currentPath.size(); i++) {
-				//cout << currentPath[i];
 				Paths.push_back(currentPath[currentPath.size() - i - 1]);
 			}
-			//cout << "\n";
 			currentPath.clear();
 			for(int i=0; i<graphSize; i++)
 				fill(objetsRecolt[i].begin(), objetsRecolt[i].end(), 0);
 			fill(pathBoolean.begin(), pathBoolean.end(),0);
 			startPoint = idChanged;
-			//cout << "NEXT START POINT " << startPoint << "\n";
 		}
 
 		vector<int> tab = dijkstra(0);
