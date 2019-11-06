@@ -209,7 +209,7 @@ void Chemin::calculateTime(double D)
 {
 	double k = 0.0;
 	if (RobotPlusRapide == "X")
-		k = 1 + Masse;
+		k = 1.0 + Masse;
 	else if (RobotPlusRapide == "Y")
 		k= 1.5 +0.6*Masse;
 	else if (RobotPlusRapide == "Z")
