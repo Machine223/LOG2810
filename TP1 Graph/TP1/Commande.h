@@ -27,6 +27,13 @@ class Commande
 
 	void prendreCommande();
 	void afficherCommande();
+	int getNObjetsA();
+	int getNObjetsB();
+	int getNObjetsC();
+	void setNObjetsA(int a);
+	void setNObjetsB(int b);
+	void setNObjetsC(int c);
+
 
 	int nObjetsA;
 	int nObjetsB;

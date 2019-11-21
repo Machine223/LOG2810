@@ -14,4 +14,17 @@ Sommet::Sommet(int i, vector<int> arcList, vector<int> o) {
 	id = i;
 	arcs_ = arcList;
 	objects_ = o;
-};
+}
+int Sommet::getId()
+{
+	return id;
+}
+vector<int> Sommet::getArcs_()
+{
+	return arcs_;
+}
+vector<int> Sommet::getObjects_()
+{
+	return objects_;
+}
+;

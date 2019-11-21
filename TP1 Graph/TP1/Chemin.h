@@ -22,39 +22,41 @@ using namespace std;
 class Chemin
 {
 	public:
-	// Constructeur
-	Chemin();
-	// Constructeur par parametre
+	
+	Chemin(); // Constructor
 	Chemin(Commande command, Graph graph);
-	//Destructeur
 	~Chemin();
 
-	void plusCourtChemin(int pointDepart); // Dijkstra
-	void calculRobotRapide();
-	void reset();
+	void plusCourtChemin(int pointDepart); // give the shortest path to collect the objects
+	void calculRobotRapide(); // give the fast robot
+	void reset(); // reset the class attributes
 
-	void setCommand(Commande command);
-	void setGraph(Graph graph);
+	void setCommand(Commande command); // set the "commande" attribute
+	void setGraph(Graph graph); // set the gaph_ attribute
 
-	int shortestDistance(vector<int> distance, vector<bool> isTheShortest);
-	int minRestObjectsAndDistance(vector<int> arr, vector<int> distance);
-	int printSolution(vector<int> dist);
-	vector<int> dijkstra(int src);
-	void updateGraph(vector<int> path);
-	void calculateTime(double D);
-
-
-	Graph graph_;
-	Commande commande;
-	vector<vector<int>> objetsRecolt;
-	vector< int> pathBoolean;
 	
-	string RobotPlusRapide;
-	double Time;
-	double Masse;
+	
 
-	int graphSize;
-	int Emergency = -1;
-	int nObjectsType=3;
+private:
+
+
+	Graph graph_; // the graph
+	Commande commande; // the command
+	vector<vector<int>> objetsRecolt; // Objects collected by the robot taking a specific way
+	vector< int> pathBoolean; // Path taken to get to a specific vertex
+	
+	string RobotPlusRapide; //  X Y or Z
+	double Time; // in seconds
+	double Masse; // represent the weight lifted by the robot in its traject
+
+	int graphSize; //total number of vertices
+	int Emergency = -1; // used in case where a shortest path found combaining two other vertices
+	int nObjectsType=3; // total number of object types
+
+	int shortestDistance(vector<int> distance, vector<bool> isTheShortest); //find the minimum value in an array
+	int minRestObjectsAndDistance(vector<int> arr, vector<int> distance); //choose the most appropriate vertex
+	vector<int> dijkstra(int src);  // Dijkstra
+	void updateGraph(vector<int> path); // Update the graph with new values after the robot has been lift the objects
+	void calculateTime(double D); // Calculate the time spent by the robot
 };
 

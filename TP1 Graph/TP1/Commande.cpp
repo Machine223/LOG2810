@@ -35,4 +35,29 @@ void Commande::prendreCommande() {
 void Commande::afficherCommande() {
 	cout << endl << "la commande est :" << endl << nObjetsA << " 0bjets de type A" << endl << nObjetsB << " 0bjets de type B" << endl
 		<< nObjetsC << " 0bjets de type C" << endl;
-};
+}
+int Commande::getNObjetsA()
+{
+	return nObjetsA;
+}
+int Commande::getNObjetsB()
+{
+	return nObjetsB;
+}
+int Commande::getNObjetsC()
+{
+	return nObjetsC;
+}
+void Commande::setNObjetsA(int a)
+{
+	nObjetsA = a;
+}
+void Commande::setNObjetsB(int b)
+{
+	nObjetsB = b;
+}
+void Commande::setNObjetsC(int c)
+{
+	nObjetsC = c;
+}
+;

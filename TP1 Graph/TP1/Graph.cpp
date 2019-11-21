@@ -83,14 +83,14 @@ void Graph::afficherGraphe()
 		int counter = 0;
 		cout << "(Noeud " << i << ", ";
 		for (int j = 0; j < 3; j++) {
-			cout << graph_[i].objects_[j] << " ,";
+			cout << graph_[i].getObjects_()[j] << " ,";
 		}
 		// affichage des arcs 
 		cout << "(";
 		for (int j = 0; j < graphSize_; j++) {
-			if (graph_[i].arcs_[j] != 0) {
+			if (graph_[i].getArcs_()[j] != 0) {
 				counter++;
-				cout << "( noeud voisin" << counter << " " << j << ", distance" << counter << " " << graph_[i].arcs_[j] << "),";
+				cout << "( noeud voisin" << counter << " " << j << ", distance" << counter << " " << graph_[i].getArcs_()[j] << "),";
 			}
 		}
 		cout << ")" << endl;
@@ -128,4 +128,14 @@ int Graph::getNbMaxObjet(char objet)
 			break;
 		}
 	}
+}
+
+int Graph::getGraphSize_()
+{
+	return graphSize_;
+}
+
+vector<Sommet> Graph::getGraph_()
+{
+	return graph_;
 }
